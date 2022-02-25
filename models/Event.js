@@ -4,6 +4,7 @@ const sequelize = require('../config/connection');
 class Event extends Model {}
 
 Event.init(
+
   {
     id: {
       type: DataTypes.INTEGER,
@@ -37,7 +38,6 @@ Event.init(
         model: 'category',
         key: 'id',
       },
-    },
   },
   {
     sequelize,
@@ -49,3 +49,4 @@ Event.init(
 );
 
 module.exports = Event;
+

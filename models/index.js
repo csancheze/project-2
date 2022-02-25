@@ -4,6 +4,7 @@ const Message = require('./Message');
 const Category = require ('./Category')
 const UserEvent = require ('./UserEvent')
 
+
 //User creator
 
 User.hasMany(Event,{
@@ -15,6 +16,7 @@ Event.belongsTo(User, {
   foreignKey: 'user_id'
 })
 
+
 //Users and Events
 
 User.belongsToMany(Event, {
@@ -22,8 +24,9 @@ User.belongsToMany(Event, {
     model:UserEvent,
     unique: false
   },
-  
+
   as: 'participating'
+
 });
 
 Event.belongsToMany(User, {
@@ -67,4 +70,6 @@ Message.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+
 module.exports = { User, Event, Message, Category, UserEvent };
+
