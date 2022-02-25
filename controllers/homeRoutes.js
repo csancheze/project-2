@@ -29,6 +29,36 @@ router.get('/', async (req,res) => {
     }
 });
 
+//This should be the get call for each category after clicking the category, it includes the event and user creator
+
+router.get('/category/:id', async (req,res) => {
+  try {
+      const categoryData = await Category.findByPk(req.params.id, {
+        include: [
+          {
+              model: Event,
+              include: {
+                  model:User,
+                  attributes: ['name']
+              }
+          },
+      ],
+      });
+
+      const category = categoryData.get({plain:true});
+
+      res.render('event', {
+          ...category,
+          logged_in: req.session.logged_in,
+          user_id: req.session.user_id,
+      });
+      
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+
 
 //This should be the get call for each event after clicking it in the category, it includes the user as participants and the messages 
 
