@@ -1,10 +1,20 @@
 const router = require('express').Router();
 const { UserEvent, Message, Event, User, Category } = require('../models');
 const withAuth = require('../utils/auth');
+const categoriesData = require('../seeds/categoriesData.json');
 
 //This gets all the categories with each event. This can be used for the homepage to show all categories and some info of the event and the creator
 router.get('/', async (req,res) => {
+
+        
     try {
+
+        const createCategories = await Category.bulkCreate(categoriesData, {
+            individualHooks: true,
+             returning: true,
+        })
+        console.log(createCategories)
+
         const categoryData = await Category.findAll({
             include: [
                 {
@@ -16,6 +26,8 @@ router.get('/', async (req,res) => {
                 },
             ],
         });
+
+       
 
         const categories = categoryData.map((category)=>category.get({plain:true}));
 
@@ -47,7 +59,7 @@ router.get('/category/:id', async (req,res) => {
 
       const category = categoryData.get({plain:true});
 
-      res.render('event', {
+      res.render('category', {
           ...category,
           logged_in: req.session.logged_in,
           user_id: req.session.user_id,
@@ -120,6 +132,33 @@ router.get('/profile', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+
+//This should be the get call for each event after clicking it on the profile. It only includes the event data for editing, excluding participants and messages.
+
+router.get('/event_editor/:id', async (req,res) => {
+  try {
+      const eventData = await Event.findByPk(req.params.id, {
+          include: [
+              {
+                  model: User,
+                  attributes: ['name'],
+              },
+          ],
+      });
+
+      const event = eventData.get({plain:true});
+
+      res.render('event_editor', {
+          ...event,
+          logged_in: req.session.logged_in,
+          user_id: req.session.user_id,
+      });
+      
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
 
   //This is the page for the users to view the events in which they are participants
   router.get('/myevents', withAuth, async (req, res) => {
