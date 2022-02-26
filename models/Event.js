@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Event extends Model {}
+class Event extends Model { }
 
 Event.init(
 
@@ -38,6 +38,7 @@ Event.init(
         model: 'category',
         key: 'id',
       },
+    },
   },
   {
     sequelize,

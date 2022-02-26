@@ -11,9 +11,9 @@
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <nav>
-        <p id="project-title">Working Title</p>
+    <header class="display-flex justify-space-between p-2">
+      <p id="project-title" class="d-flex justify-content-center">Working Title</p>
+      <nav class="d-flex justify-content-end">
         <a class="p-2" href="/">Home</a>
         <a class="p-2" href="/myEvents">My Events</a>
         {{#if logged_in}}
@@ -22,7 +22,6 @@
         <a class="p-2" href="/login">Login</a>
         {{/if}}
       </nav>
-      <p id="page-name" class="rounded">Working title</p>
     </header>
     <main class="container">
       {{{ body }}}

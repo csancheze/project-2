@@ -1,34 +1,50 @@
 [
     {
       "title": "Mario Kart Tournament",
-      "content": "Join us for the monthly Mario Kart Tournament. Details of the code to join will be posted here the day of the event."
+      "content": "Join us for the monthly Mario Kart Tournament. Details of the code to join will be posted here the day of the event.",
+      "user_id": 1,
+      "category_id": 1 
     },
     {
       "title": "Reading Club",
-      "content": "We are starting a Reading Club to discuss an specific book every week. Feel free to propose new books!"
+      "content": "We are starting a Reading Club to discuss an specific book every week. Feel free to propose new books!",
+      "user_id": 2,
+      "category_id": 5 
     },
     {
       "title": "Covid advise",
-      "content": "Join Dr. Jane Doe in this session."
+      "content": "Join Dr. Jane Doe in this session.",
+      "user_id": 3,
+      "category_id": 2
     },
     {
       "title": "Movie lovers",
-      "content": "Discuss movies with strangers."
+      "content": "Discuss movies with strangers.",
+      "user_id": 1,
+      "category_id": 5
     },
     {
       "title": "How to prepare ceviche",
-      "content": "Cooking session to prepare ceviche, mexican style."
+      "content": "Cooking session to prepare ceviche, mexican style.",
+      "user_id": 2,
+      "category_id": 4
     },
     {
       "title": "Soccer championship",
-      "content": "Watch the championship this Sunday."
+      "content": "Watch the championship this Sunday.",
+      "user_id": 3,
+      "category_id": 3
     },
     {
       "title": "Smash Bros Tournament",
-      "content": "North America Smash Bros tournament."
+      "content": "North America Smash Bros tournament.",
+      "user_id": 1,
+      "category_id": 1 
     },
     {
       "title": "How to prepare Paella",
-      "content": "Paella cooking session."
+      "content": "Paella cooking session.",
+      "user_id": 2,
+      "category_id": 4
     }
 ]

@@ -1,0 +1,27 @@
+:root {
+    --first-color: #5f5dbd;
+    --second-color: #5e87b8;
+    --third-color: #83cee0;
+    --fourth-color: #a4fbe3;
+  }
+
+body {
+    background-color: var(--third-color);
+}
+
+header {
+    background-color: var(--first-color); 
+}
+
+nav, nav a {
+    color: var(--third-color);
+    font-size: 3vh;
+    text-decoration: none;
+}
+
+#project-title {
+    display: inline-block;
+    color: var(--fourth-color);
+    font-size: 6vh;
+}
+
