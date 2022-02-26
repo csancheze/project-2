@@ -1,11 +1,9 @@
-{{#each events as |event|}}
+{{#each categories as |category|}}
   <div class="row">
     <div class="col-12 border rounded-3 border-5 p-0 border-dark m-2">
       <div class="d-flex justify-content-between title p-2">
-        <h4 class="post-title"><a href="/post/{{event.id}}">{{event.title}}</a></h4>
+        <h4 class="category-title"><a href="/categories/{{category.id}}">{{category.name}}</a></h4>
         </div>
-        <h3 class="content p-2">{{event.description}}</h3>
-        <h6 class="author">Posted by: {{event.user.username}} on {{format_date event.creation_date}}</h6>
       </div>
     </div>
 {{/each}}
