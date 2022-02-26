@@ -1,0 +1,3 @@
+
+DROP DATABASE IF EXISTS relax_db;
+CREATE DATABASE relax_db;
