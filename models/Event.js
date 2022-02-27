@@ -25,6 +25,10 @@ Event.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    date_celebration: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
