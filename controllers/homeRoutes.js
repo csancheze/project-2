@@ -10,6 +10,7 @@ const createCategories = Category.bulkCreate(categoriesData, {
 })
 console.log(createCategories)
 
+
 router.get('/', async (req,res) => {
     try {
         const categoryData = await Category.findAll({
