@@ -3,6 +3,8 @@ const Event= require('./Event');
 const Message = require('./Message');
 const Category = require ('./Category')
 const UserEvent = require ('./UserEvent')
+const Tag = require ('./Tag')
+const EventTag = require ('./EventTag')
 
 
 //User creator
@@ -70,6 +72,24 @@ Message.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+//Events and Tags
 
-module.exports = { User, Event, Message, Category, UserEvent };
+Event.belongsToMany(Tag, {
+  through: {
+    model: EventTag,
+    unique: false
+  },
+  as: 'tagged_events'
+});
+
+Tag.belongsToMany(Event, {
+  through: {
+    model: EventTag,
+    unique: false
+  },
+  as: 'event_tags'
+});
+
+
+module.exports = { User, Event, Message, Category, UserEvent, Tag, EventTag };
 

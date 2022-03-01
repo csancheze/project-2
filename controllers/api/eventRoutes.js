@@ -8,7 +8,6 @@ router.post('/', withAuth, async (req, res) => {
         const dbeventData = await Event.create({
             ...req.body,
             user_id: req.session.user_id
-
         });
 
         res.status(201).json(dbeventData);
@@ -68,4 +67,8 @@ router.put('/:id', withAuth, async (req, res) => {
     }
   });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> ac11eb2be8361b976287ac6376011cd915aa8a07

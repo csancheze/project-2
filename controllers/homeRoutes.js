@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { UserEvent, Message, Event, User, Category } = require('../models');
+const { UserEvent, Message, Event, User, Category, Tag, EventTag } = require('../models');
 const withAuth = require('../utils/auth');
 const categoriesData = require('../seeds/categoriesData.json')
 
@@ -41,7 +41,7 @@ router.get('/', async (req,res) => {
 
 router.get('/category/:id', async (req,res) => {
   try {
-      const categoryData = await Category.findByPk(req.params.id, {
+        const categoryData = await Category.findByPk(req.params.id, {
         include: [
           {
               model: Event,
@@ -50,12 +50,16 @@ router.get('/category/:id', async (req,res) => {
                   attributes: ['name']
               }
           },
-      ],
-      });
+        ],
+        });
 
-      const category = categoryData.get({plain:true});
+        const now = new Date();
 
-      res.render('event', {
+        const category = categoryData.get({plain:true});
+        console.log(category);
+        category.events = category.events.filter(event => event.date.getTime() >= now.getTime())
+
+        res.render('category', {
           ...category,
           logged_in: req.session.logged_in,
           user_id: req.session.user_id,
@@ -91,6 +95,12 @@ router.get('/event/:id', async (req,res) => {
                             attributes:['name']
                         }
                     ],
+                },
+                {
+                    model: Tag,
+                    through:EventTag,
+                    as: 'event_tags'
+
                 },
             ],
         });
