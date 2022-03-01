@@ -1,18 +1,25 @@
+var categoryId = document.getElementsByName('categoryId');
+var category_id = ""
+
 const myEventFormHandler = async (event) => {
     event.preventDefault();
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id')
 
     const title = document.querySelector('#event-title').value.trim();
-    const content = document.querySelector('#update-event').value.trim();
-        if (title == ""){
-          alert('Write an updated title')
-        }
+    const content = document.querySelector('#update-content').value.trim();
+    const date_celebration = document.querySelector('#event-date').value;
+    for (i = 0; i < categoryId.length; i++) {
+      if (categoryId[i].checked) {
+          category_id = categoryId[i].value
+      }
+   }
+
   
-        if (title && content) {
+        if (title && content && date_celebration && category_id) {
         const response = await fetch(`/api/events/${id}`, {
             method: 'PUT',
-            body: JSON.stringify({ title, content}),
+            body: JSON.stringify({ title, content, date_celebration, category_id}),
             headers: {
             'Content-Type': 'application/json',
             },
@@ -25,7 +32,9 @@ const myEventFormHandler = async (event) => {
         } else {
             alert('Failed to update event');
         }
-        } 
+        } else {
+      alert('Did you left something empty?')
+    }
     }
 }
   
@@ -48,9 +57,9 @@ const myEventFormHandler = async (event) => {
   };
   
   document
-    .querySelector('#event-update-form')
+    .querySelector('.update-event-form')
     .addEventListener('submit', myEventFormHandler);
   
   document
-    .querySelector('#event-delete-form')
+    .querySelector('#delete-button')
     .addEventListener('click', delEventButtonHandler);

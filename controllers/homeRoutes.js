@@ -89,6 +89,10 @@ router.get('/event/:id', async (req,res) => {
                     through: UserEvent, 
                     as: 'participants' 
                 },
+                {
+                  model: Category,
+                  attributes: ['name']
+                },
                 
                 { model: Message,
                     include: [
@@ -114,6 +118,37 @@ router.get('/event/:id', async (req,res) => {
     }
 });
 
+router.get('/event_editor/:id', async (req,res) => {
+  try {
+      const eventData = await Event.findByPk(req.params.id, {
+          include: [
+              {
+                  model: User,
+                  attributes: ['name'],
+              },
+              {
+                model: Category,
+                attributes: ['name']
+              },
+          ],
+      });
+
+      const event = eventData.get({plain:true});
+      const categoryData = await Category.findAll()
+
+      const categories = categoryData.map((category)=>category.get({plain:true}));
+
+      res.render('event_editor', {
+        categories,
+          ...event,
+          logged_in: req.session.logged_in,
+          user_id: req.session.user_id,
+      });
+      
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
 // This is the profile which renders the user information including created events
 
 router.get('/profile', withAuth, async (req, res) => {
