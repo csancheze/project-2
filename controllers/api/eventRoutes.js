@@ -8,7 +8,6 @@ router.post('/', withAuth, async (req, res) => {
         const dbeventData = await Event.create({
             ...req.body,
             user_id: req.session.user_id
-
         });
 
         res.status(201).json(dbeventData);
