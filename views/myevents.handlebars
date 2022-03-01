@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-12">
+    <h2>Welcome {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row">
+{{#if events.length}}
+  <div class="col-12 event-list">
+    <h3>This are your upcoming events:</h3>
+    {{#each events as |event|}}
+    <div class="row">
+      <div class="col-12 border rounded-3 border-5 p-0 border-dark m-2">
+      <div class="d-flex justify-content-between title p-2">
+        <h4 class="event-title"><a href="/myevents/{{event.id}}">{{event.title}}</a></h4>
+        <h4>{{event.content}}</h4>
+        <h4>{{event.date_created}}</h4>
+        </div>
+        </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+  </div>
+
+  <script src="/js/userEvent.js"></script>

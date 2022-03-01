@@ -96,12 +96,6 @@ router.get('/event/:id', async (req,res) => {
                         }
                     ],
                 },
-                {
-                    model: Tag,
-                    through:EventTag,
-                    as: 'event_tags'
-
-                },
             ],
         });
 
