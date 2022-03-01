@@ -67,8 +67,4 @@ router.put('/:id', withAuth, async (req, res) => {
     }
   });
 
-<<<<<<< HEAD
 module.exports = router;
-=======
-module.exports = router;
->>>>>>> ac11eb2be8361b976287ac6376011cd915aa8a07
