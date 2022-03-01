@@ -1,11 +1,18 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class UserEvent extends Model {}
+class UserEvent extends Model { }
 
 // create fields/columns for Trip model
 UserEvent.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+
     user_id: {
       type: DataTypes.INTEGER,
       references: {
