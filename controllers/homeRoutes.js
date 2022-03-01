@@ -4,11 +4,6 @@ const withAuth = require('../utils/auth');
 const categoriesData = require('../seeds/categoriesData.json')
 
 //This gets all the categories with each event. This can be used for the homepage to show all categories and some info of the event and the creator
-const createCategories = Category.bulkCreate(categoriesData, {
-    individualHooks: true,
-    returning: true,
-})
-console.log(createCategories)
 
 
 router.get('/', async (req,res) => {
@@ -25,7 +20,14 @@ router.get('/', async (req,res) => {
             ],
         });
 
-        const categories = categoryData.map((category)=>category.get({plain:true}));
+        if (categoryData == "") {
+            const createCategories = await Category.bulkCreate(categoriesData, {
+              individualHooks: true,
+              returning: true,
+              })
+            console.log(createCategories)
+        }
+       const categories = categoryData.map((category)=>category.get({plain:true}));
 
         res.render('homepage', {
             categories,
@@ -57,7 +59,7 @@ router.get('/category/:id', async (req,res) => {
 
         const category = categoryData.get({plain:true});
         console.log(category);
-        category.events = category.events.filter(event => event.date.getTime() >= now.getTime())
+        category.events = category.events.filter(event => event.date_celebration.getTime() >= now.getTime())
 
         res.render('category', {
           ...category,
@@ -121,10 +123,14 @@ router.get('/profile', withAuth, async (req, res) => {
         attributes: { exclude: ['password'] },
         include: [{ model: Event}],
       });
-  
+
+      const categoryData = await Category.findAll()
+
       const user = userData.get({ plain: true });
+      const categories = categoryData.map((category)=>category.get({plain:true}));
   
       res.render('profile', {
+        categories,
         ...user,
         logged_in: true
       });
