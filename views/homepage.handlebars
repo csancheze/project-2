@@ -1,9 +1,12 @@
+<div class="d-flex justify-content-center" id="select-category">
+Select a category:
+</div>
+<div class="row d-flex justify-content-center">
 {{#each categories as |category|}}
-  <div class="row">
-    <div class="col-12 border rounded-3 border-5 p-0 border-dark m-2">
-      <div class="d-flex justify-content-between title p-2">
-        <h4 class="category-title"><a href="/categories/{{category.id}}">{{category.name}}</a></h4>
+<a href="/category/{{category.id}}" class="col-11 col-sm-3 p-0 m-2 category rounded-pill btn-outline-primary">
+      <div class="d-flex justify-content-center p-2">
+        <h4 class="category-title">{{category.name}}</h4>
         </div>
-      </div>
-    </div>
+      </a>
 {{/each}}
+</div>

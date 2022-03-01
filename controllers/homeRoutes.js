@@ -1,8 +1,16 @@
 const router = require('express').Router();
 const { UserEvent, Message, Event, User, Category, Tag, EventTag } = require('../models');
 const withAuth = require('../utils/auth');
+const categoriesData = require('../seeds/categoriesData.json')
 
 //This gets all the categories with each event. This can be used for the homepage to show all categories and some info of the event and the creator
+const createCategories = Category.bulkCreate(categoriesData, {
+    individualHooks: true,
+    returning: true,
+})
+console.log(createCategories)
+
+
 router.get('/', async (req,res) => {
     try {
         const categoryData = await Category.findAll({
