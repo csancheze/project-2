@@ -1,34 +1,42 @@
 [
     {
       "title": "Mario Kart Tournament",
-      "content": "Join us for the monthly Mario Kart Tournament. Details of the code to join will be posted here the day of the event."
+      "content": "Join us for the monthly Mario Kart Tournament. Details of the code to join will be posted here the day of the event.",
+      "date_celebration":"01.01.2020"
     },
     {
       "title": "Reading Club",
-      "content": "We are starting a Reading Club to discuss an specific book every week. Feel free to propose new books!"
+      "content": "We are starting a Reading Club to discuss an specific book every week. Feel free to propose new books!",
+      "date_celebration":"01.01.2020"
     },
     {
       "title": "Covid advise",
-      "content": "Join Dr. Jane Doe in this session."
+      "content": "Join Dr. Jane Doe in this session.",
+      "date_celebration":"01.01.2020"
     },
     {
       "title": "Movie lovers",
-      "content": "Discuss movies with strangers."
+      "content": "Discuss movies with strangers.",
+      "date_celebration":"01.01.2020"
     },
     {
       "title": "How to prepare ceviche",
-      "content": "Cooking session to prepare ceviche, mexican style."
+      "content": "Cooking session to prepare ceviche, mexican style.",
+      "date_celebration":"01.01.2020"
     },
     {
       "title": "Soccer championship",
-      "content": "Watch the championship this Sunday."
+      "content": "Watch the championship this Sunday.",
+      "date_celebration":"01.01.2020"
     },
     {
       "title": "Smash Bros Tournament",
-      "content": "North America Smash Bros tournament."
+      "content": "North America Smash Bros tournament.",
+      "date_celebration":"01.01.2020"
     },
     {
       "title": "How to prepare Paella",
-      "content": "Paella cooking session."
+      "content": "Paella cooking session.",
+      "date_celebration":"01.01.2020"
     }
 ]

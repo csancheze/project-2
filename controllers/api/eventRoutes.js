@@ -67,5 +67,4 @@ router.put('/:id', withAuth, async (req, res) => {
     }
   });
 
-  
 module.exports = router;
