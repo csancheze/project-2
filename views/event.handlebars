@@ -9,6 +9,10 @@
         {{#each participants as |participant|}}
         <span>*{{participant.name}}*</span>
         {{/each}}
+        <button id="participate-button" data-id="{{id}}" > Participate! </button>
+
+
+    <button id="dont-button" data-id="{{id}}"> Don't participate</button>
     </div>
 
 {{#if messages.length}}
@@ -20,7 +24,7 @@
   </div>
   {{/if}}
 
-<div class="col-12 border rounded-3 border-5 p-0 border-dark m-2">
+<div class="col-12 border rounded-3 border-5 p-0 border-dark" style="margin-bottom: 100px">
 <form class="form message-form" data-id="{{id}}">
       <div class="form-group m-2">
         <label class="col-12" for="add-message">Add a message:</label>
@@ -29,13 +33,11 @@
       <div class="form-group">
         <button class="btn btn-primary" type="submit" id="message-button">Post</button>
       </div>
-      </div>
+      
 </form>
+</div>
 
-<button id="participate-button" data-id="{{id}}" > Participate! </button>
 
-
-<button id="dont-button" data-id="{{id}}"> Don't participate</button>
 
 
   <script src="/js/message.js"></script>
