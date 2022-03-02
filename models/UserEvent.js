@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class UserEvent extends Model { }
 
-// create fields/columns for Trip model
+
 UserEvent.init(
   {
     id: {

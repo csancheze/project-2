@@ -1,51 +1,36 @@
 const router = require('express').Router();
-const { Tag, Event, EventTag } = require('../../models');
-
-router.get('/', async (req, res) => {
-  try {
-    const tagData = await Tag.findAll({
-      include:[{ model: Event, through: EventTag, as: 'tagged_events'}]
-    });
-    res.status(200).json(tagData);
-    
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/:id', async (req, res) => {
-    try {
-      const tagData = await Tag.findByPk(req.params.id, {
-        include: [{ model: Event, through: EventTag, as: 'taggged_events' }]
-      });
-  
-      if (!tagData) {
-        res.status(404).json({ message: 'No tag found with this id!' });
-        return;
-      }
-  
-      res.status(200).json(tagData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
+const { Tag, EventTag } = require('../../models');
 
 
 router.post('/', async (req, res) => {
   try {
-    const tagData = await Tag.create({
-        tag_name: req.body.tag_name
-        })
+    const tagData = await Tag.findAll();
+    const tags = tagData.map((tag) => tag.get({ plain: true }));
+
+    console.log(tags)
+    const tagsArray = []
+    for (i = 0; i < tags.length; i++) {
+      tagsArray.push(tags[i].tag_name)
+    }
+    console.log(tagsArray)    
+
+    if (!tagsArray.includes(req.body.tag_name)) {
+          const newTag = await Tag.create({
+              tag_name: req.body.tag_name
+              })
+              console.log(newTag)
+    }
+
     const newTagData = await Tag.findAll({
         where: { tag_name: req.body.tag_name}
     })
+    console.log(newTagData)
+
     const eventTagData = await EventTag.create({
         event_id: req.body.eventId,
-        tag_id: newTagData.id ,
+        tag_id: newTagData[0].id ,
     })
 
-    res.status(200).json(tagData);
     res.status(200).json(eventTagData)
   } catch (err) {
     res.status(400).json(err);

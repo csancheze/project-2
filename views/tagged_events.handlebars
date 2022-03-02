@@ -1,0 +1,11 @@
+<div class="row d-flex justify-content-center">
+{{#each tagged_events as |event|}}
+<a href="/event/{{event.id}}" class="col-11 col-sm-3 p-0 m-2 category rounded-pill btn-outline-primary">
+      <div class="d-flex justify-content-center p-2">
+        <h4 class="category-title">{{event.title}}</h4>
+        <h4 class="category-title">{{event.content}}</h4>
+        <h4 class="category-title">{{format_date event.date_created}}</h4>
+        </div>
+      </a>
+{{/each}}
+</div>

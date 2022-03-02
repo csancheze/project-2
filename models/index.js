@@ -79,7 +79,7 @@ Event.belongsToMany(Tag, {
     model: EventTag,
     unique: false
   },
-  as: 'tagged_events'
+  as: 'event_tags'
 });
 
 Tag.belongsToMany(Event, {
@@ -87,7 +87,7 @@ Tag.belongsToMany(Event, {
     model: EventTag,
     unique: false
   },
-  as: 'event_tags'
+  as: 'tagged_events'
 });
 
 

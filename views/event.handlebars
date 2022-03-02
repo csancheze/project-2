@@ -11,6 +11,12 @@
         {{#each participants as |participant|}}
         <span> *{{participant.name}}* </span>
         {{/each}}
+        <p>Tags:</p>
+        {{#each tagged_events as |tag|}}
+          <p> {{tag.tag_name}} </p>
+
+        {{/each}}
+        <a href="/addtags/{{id}}">Add tags</a>
 
         <button id="participate-button" data-id="{{id}}" > Participate! </button>
     <button id="dont-button" data-id="{{id}}"> Don't participate</button>
