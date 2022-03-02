@@ -84,6 +84,7 @@ router.put('/:id', withAuth, async (req, res) => {
         content: req.body.content,
         date_celebration: req.body.date_celebration,
         category_id: req.body.category_id,
+        link: req.body.link
       },
       {
         where: {

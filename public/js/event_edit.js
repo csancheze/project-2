@@ -9,6 +9,7 @@ const myEventFormHandler = async (event) => {
     const title = document.querySelector('#event-title').value.trim();
     const content = document.querySelector('#update-content').value.trim();
     const date_celebration = document.querySelector('#event-date').value;
+    const link = document.querySelector('#url').value.trim();
     for (i = 0; i < categoryId.length; i++) {
       if (categoryId[i].checked) {
           category_id = categoryId[i].value
@@ -19,7 +20,7 @@ const myEventFormHandler = async (event) => {
         if (title && content && date_celebration && category_id) {
         const response = await fetch(`/api/events/${id}`, {
             method: 'PUT',
-            body: JSON.stringify({ title, content, date_celebration, category_id}),
+            body: JSON.stringify({ title, content, date_celebration, category_id, link}),
             headers: {
             'Content-Type': 'application/json',
             },
