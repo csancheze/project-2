@@ -21,7 +21,7 @@ const messageFormHandler = async (event) => {
       }
     } else {
       alert('Write something!')
-    }
+    } 
   };
   
   

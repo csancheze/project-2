@@ -7,13 +7,10 @@
         <h3>Participants</h3>
         <p>Date of the event: {{format_date date_celebration}}</p>
         {{#each participants as |participant|}}
-        <span>*{{participant.name}}*</span>
+        <span> *{{participant.name}}* </span>
         {{/each}}
 
-        {{#contains participants }}
         <button id="participate-button" data-id="{{id}}" > Participate! </button>
-
-
     <button id="dont-button" data-id="{{id}}"> Don't participate</button>
     </div>
 
