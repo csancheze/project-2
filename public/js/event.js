@@ -26,7 +26,7 @@ const eventFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            alert('event created')
+            alert('Event created')
             document.location.replace('/profile');
         } else {
             alert('Failed to create the event.');
@@ -50,6 +50,6 @@ function showForm() {
       y.style.display = "none";
     }
    }
-  
+
 
 document.querySelector('.event-form').addEventListener('submit', eventFormHandler);

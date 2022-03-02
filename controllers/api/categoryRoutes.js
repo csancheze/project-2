@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { Category } = require('../../models');
+const { Category, User, UserEvent } = require('../../models');
 const withAuth = require('../../utils/auth')
+
 
 // CREATE new category
 router.post('/', withAuth, async (req, res) => {
@@ -17,5 +18,7 @@ router.post('/', withAuth, async (req, res) => {
     }
 
 });
+
+
 
 module.exports = router;
