@@ -143,6 +143,42 @@ router.get('/event_editor/:id', async (req, res) => {
 
     res.render('event_editor', {
       categories,
+
+    const event = eventData.get({ plain: true });
+
+    res.render('event', {
+      ...event,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/event_editor/:id', async (req, res) => {
+  try {
+    const eventData = await Event.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+          model: Category,
+          attributes: ['name']
+        },
+      ],
+    });
+
+    const event = eventData.get({ plain: true });
+    const categoryData = await Category.findAll()
+
+    const categories = categoryData.map((category) => category.get({ plain: true }));
+
+    res.render('event_editor', {
+      categories,
       ...event,
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
@@ -188,6 +224,12 @@ router.get('/myevents', withAuth, async (req, res) => {
       include: [
         {
           model: Event,
+            include: [
+            {
+              model: User,
+              attributes: ['name']           
+             } 
+            ],
           through: UserEvent,
           as: 'participating'
         },
@@ -196,7 +238,6 @@ router.get('/myevents', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
     user.participating.sort((a, b) => (a.date_celebration > b.date_celebration) ? 1 : ((b.date_celebration > a.date_celebration) ? -1 : 0));
-
     res.render('myevents', {
       ...user,
       logged_in: true

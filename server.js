@@ -6,7 +6,6 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const handlebarsHelpers = require('handlebars-helpers')();
 
-
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -19,7 +18,7 @@ const hbs = exphbs.create({ helpers }, { handlebarsHelpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    expires: 1200000
+    maxAge: 60*10000
   },
   resave: true,
   saveUninitialized: true,
