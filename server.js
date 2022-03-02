@@ -19,7 +19,7 @@ const hbs = exphbs.create({ helpers }, { handlebarsHelpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    expires: 1200000
+    maxAge: 60*10000
   },
   resave: true,
   saveUninitialized: true,

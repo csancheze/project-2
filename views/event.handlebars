@@ -9,6 +9,8 @@
         {{#each participants as |participant|}}
         <span>*{{participant.name}}*</span>
         {{/each}}
+
+        {{#contains participants }}
         <button id="participate-button" data-id="{{id}}" > Participate! </button>
 
 
@@ -37,8 +39,5 @@
 </form>
 </div>
 
-
-
-
   <script src="/js/message.js"></script>
-    <script src="/js/userEvent.js"></script>
+  <script src="/js/userEvent.js"></script>
