@@ -195,7 +195,7 @@ router.get('/myevents', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    user.events.sort((a, b) => (a.date_celebration > b.date_celebration) ? 1 : ((b.date_celebration > a.date_celebration) ? -1 : 0));
+    user.participating.sort((a, b) => (a.date_celebration > b.date_celebration) ? 1 : ((b.date_celebration > a.date_celebration) ? -1 : 0));
 
     res.render('myevents', {
       ...user,
