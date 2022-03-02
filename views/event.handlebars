@@ -6,6 +6,7 @@
         <p>Category: {{category.name}}</p>
         <h3>Participants</h3>
         <p>Date of the event: {{format_date date_celebration}}</p>
+        <a href="{{link}}">Go to the event</a>
         {{#each participants as |participant|}}
         <span> *{{participant.name}}* </span>
         {{/each}}
