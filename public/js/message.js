@@ -1,9 +1,9 @@
 const messageFormHandler = async (event) => {
     event.preventDefault();
   
-    const content = document.querySelector('#event-message').value.trim();
+    const content = document.querySelector('#add-message').value.trim();
     const date_created = new Date();
-    const event_id = document.querySelector("#event").getAttribute('data-id')  
+    const event_id = document.querySelector(".message-form").getAttribute('data-id')  
   
     if (content && date_created && event_id) {
       const response = await fetch('/api/messages', {
@@ -15,7 +15,7 @@ const messageFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace(`${event_id}`);
+        document.location.reload()
       } else {
         alert('Failed to create comment');
       }
@@ -25,4 +25,4 @@ const messageFormHandler = async (event) => {
   };
   
   
-  document.querySelector('#message-form').addEventListener('submit', messageFormHandler);
+  document.querySelector('.message-form').addEventListener('submit', messageFormHandler);

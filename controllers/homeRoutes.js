@@ -4,11 +4,6 @@ const withAuth = require('../utils/auth');
 const categoriesData = require('../seeds/categoriesData.json')
 
 //This gets all the categories with each event. This can be used for the homepage to show all categories and some info of the event and the creator
-const createCategories = Category.bulkCreate(categoriesData, {
-    individualHooks: true,
-    returning: true,
-})
-console.log(createCategories)
 
 
 router.get('/', async (req,res) => {
@@ -25,7 +20,14 @@ router.get('/', async (req,res) => {
             ],
         });
 
-        const categories = categoryData.map((category)=>category.get({plain:true}));
+        if (categoryData == "") {
+            const createCategories = await Category.bulkCreate(categoriesData, {
+              individualHooks: true,
+              returning: true,
+              })
+            console.log(createCategories)
+        }
+       const categories = categoryData.map((category)=>category.get({plain:true}));
 
         res.render('homepage', {
             categories,
@@ -57,7 +59,7 @@ router.get('/category/:id', async (req,res) => {
 
         const category = categoryData.get({plain:true});
         console.log(category);
-        category.events = category.events.filter(event => event.date.getTime() >= now.getTime())
+        category.events = category.events.filter(event => event.date_celebration.getTime() >= now.getTime())
 
         res.render('category', {
           ...category,
@@ -87,6 +89,10 @@ router.get('/event/:id', async (req,res) => {
                     through: UserEvent, 
                     as: 'participants' 
                 },
+                {
+                  model: Category,
+                  attributes: ['name']
+                },
                 
                 { model: Message,
                     include: [
@@ -95,12 +101,6 @@ router.get('/event/:id', async (req,res) => {
                             attributes:['name']
                         }
                     ],
-                },
-                {
-                    model: Tag,
-                    through:EventTag,
-                    as: 'event_tags'
-
                 },
             ],
         });
@@ -118,6 +118,37 @@ router.get('/event/:id', async (req,res) => {
     }
 });
 
+router.get('/event_editor/:id', async (req,res) => {
+  try {
+      const eventData = await Event.findByPk(req.params.id, {
+          include: [
+              {
+                  model: User,
+                  attributes: ['name'],
+              },
+              {
+                model: Category,
+                attributes: ['name']
+              },
+          ],
+      });
+
+      const event = eventData.get({plain:true});
+      const categoryData = await Category.findAll()
+
+      const categories = categoryData.map((category)=>category.get({plain:true}));
+
+      res.render('event_editor', {
+        categories,
+          ...event,
+          logged_in: req.session.logged_in,
+          user_id: req.session.user_id,
+      });
+      
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
 // This is the profile which renders the user information including created events
 
 router.get('/profile', withAuth, async (req, res) => {
@@ -127,10 +158,14 @@ router.get('/profile', withAuth, async (req, res) => {
         attributes: { exclude: ['password'] },
         include: [{ model: Event}],
       });
-  
+
+      const categoryData = await Category.findAll()
+
       const user = userData.get({ plain: true });
+      const categories = categoryData.map((category)=>category.get({plain:true}));
   
       res.render('profile', {
+        categories,
         ...user,
         logged_in: true
       });

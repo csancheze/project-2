@@ -14,12 +14,12 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 
-const hbs = exphbs.create({ helpers }{ handlebarsHelpers });
+const hbs = exphbs.create({ helpers }, { handlebarsHelpers });
 
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    expires: 120000
+    expires: 1200000
   },
   resave: true,
   saveUninitialized: true,

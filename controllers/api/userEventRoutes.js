@@ -22,13 +22,13 @@ router.post('/',  withAuth, async (req, res) => {
     try {
       const ParticipantData = await UserEvent.destroy({
         where: {
-          id: req.params.id,
+          event_id: req.params.id,
           user_id: req.session.user_id,
         },
       });
   
       if (!ParticipantData) {
-        res.status(404).json({ message: 'The participang has not been found in this event!' });
+        res.status(404).json({ message: 'The participant has not been found in this event!' });
         return;
       }
   
