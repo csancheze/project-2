@@ -26,3 +26,6 @@ const messageFormHandler = async (event) => {
   
   
   document.querySelector('.message-form').addEventListener('submit', messageFormHandler);
+
+  var elmnt = document.querySelector(".comment-list");
+    elmnt.scrollTop = 99999;

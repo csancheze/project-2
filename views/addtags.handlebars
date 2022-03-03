@@ -1,22 +1,22 @@
 <div>
-    <h2>Event: {{title}}</h2>
-    <div>
-        <p>This event tags:</p>
-        {{#each event_tags as |tag|}}
-        <div style="border: solid 3px white">
-        <span> {{tag.tag_name}} </span>
-        </div>
-        {{/each}}
-    </div>
-    <div  id="list-tags">
+     <div class="p-3" id="list-tags">
         <h3>List of all tags: </h3>
         {{#each tags as |tag|}}
-        <div style="border: solid 3px black">
-        <span> {{tag.tag_name}} </span>
-        <button id="delete-tag" data-id="{{tag.id}}">Delete from everywhere</button>
+        <div style="border: solid 3px black; width:fit-content; display:inline-block">
+        <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span>
         </div>
         {{/each}}
     </div>
+    <h2>Event: {{title}}</h2>
+    <div class="p-3">
+        <p>This event tags:</p>
+        {{#each event_tags as |tag|}}
+        <div style="border: solid 3px white; width:fit-content; display:inline-block" >
+        <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span><button id="delete-tag" data-id="{{tag.id}}">Delete</button>
+        </div>
+        {{/each}}
+    </div>
+   
     <div>
     <form id="new-tag" data-id="{{id}}">
         <textarea id="tag" name="tag" rows="1" cols="50"></textarea>
