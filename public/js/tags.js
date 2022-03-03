@@ -20,6 +20,26 @@
         alert('Failed to create tag.');
     }
 }
-    
+
+const delEventButtonHandler = async (event) => {
+    event.preventDefault();
+    if (event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id');
+      const eventId = document.querySelector('.event-title').getAttribute('data-id')
+  
+      const response = await fetch(`/api/event_tags/${id}+${eventId}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        alert('The tag was deleted')
+            window.location.reload()
+      } else {
+        alert('Failed to delete tag');
+      }
+    }
+  };
+  
 
     document.querySelector('#new-tag').addEventListener('submit',addTagToEvent);
+    document.querySelector('.delete-tag').addEventListener('click', delEventButtonHandler);
