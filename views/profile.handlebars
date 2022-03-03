@@ -13,7 +13,7 @@
     <a href="/event_editor/{{event.id}}" id="my-events" class="rounded-3 col-12 col-sm-3 btn-outline-primary">
       <div class="d-flex justify-content-between title p-2 row ">
         <h4 class="event-title col-12">{{event.title}}</h4>
-        <h4 class="col-12 text-center event-date">Event date: {{format_date event.date_celebration}}</h4>
+        <h4 class="col-12 text-center event-date">Event date: {{format_date event.date_celebration}} at {{format_time event.date_celebration}}</h4>
         </div>
         </a>
     {{/each}}

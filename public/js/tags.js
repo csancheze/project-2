@@ -3,7 +3,7 @@
 
   const addTagToEvent = async (event) => {
       event.preventDefault();
-      const tag_name = document.querySelector("#tag").value;
+      const tag_name = document.querySelector("#tag").value.trim();
       console.log(tag_name)
       const eventId =  event.target.getAttribute('data-id')
 
