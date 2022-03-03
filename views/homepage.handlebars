@@ -9,4 +9,12 @@ Select a category:
         </div>
       </a>
 {{/each}}
+
+ <div>
+      <p>Tags:</p>
+     {{#each tags as |tag|}}
+      <a href="/tag/{{tag.id}}">{{tag.tag_name}}</a>
+    </div>
+    {{/each}}
+  </div>
 </div>
