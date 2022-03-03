@@ -5,13 +5,14 @@
         </div>
   
         <p>Tags:</p>
+        <div style="height:80px; overflow:auto; white-space:nowrap">
         {{#each event_tags as |tag|}}
-          <div style="border: solid 3px black; width:fit-content; display:inline-block">
+        <div style="border: solid 3px black; width:fit-content; display:inline-block">
         <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span>
         </div>
-
         {{/each}}
         <a class="btn btn-secondary" href="/addtags/{{id}}">Add tags</a>
+        </div>
 
         <h3 id="event-data" class="content mb-4">{{content}}</h3>
         <p id="event-data" class="mb-0">Category: {{category.name}}</p>
