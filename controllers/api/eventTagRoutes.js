@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { EventTag } = require('../../models');
 const withAuth = require('../../utils/auth')
 
-
+//Delete the relation between event and tag
   router.delete('/:id', withAuth, async (req, res) => {
     try {
       const array = req.params.id.split("+")
