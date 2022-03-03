@@ -2,7 +2,7 @@
      <div class="p-3" id="list-tags">
         <h3>List of all tags: </h3>
         {{#each tags as |tag|}}
-        <div style="border: solid 3px black; width:fit-content; display:inline-block">
+        <div style="border: solid 3px white; width:fit-content; display:inline-block">
         <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span>
         </div>
         {{/each}}
@@ -11,7 +11,7 @@
     <div class="p-3">
         <p>This event tags:</p>
         {{#each event_tags as |tag|}}
-        <div style="border: solid 3px white; width:fit-content; display:inline-block" >
+        <div style="border: solid 3px black; width:fit-content; display:inline-block" >
         <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span><button id="delete-tag" data-id="{{tag.id}}">Delete</button>
         </div>
         {{/each}}
@@ -24,7 +24,7 @@
     </form>
     </div>
 
-    <a href="/event/{{id}}">Back to event</a>
+    <a class="btn btn-secondary"href="/event/{{id}}">Back to event</a>
 
 </div>
   <script src="/js/tags.js"></script>
