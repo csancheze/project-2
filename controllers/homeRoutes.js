@@ -20,6 +20,12 @@ router.get('/', async (req, res) => {
       ],
     });
 
+    const tagData = await Tag.findAll({
+    })
+  
+  
+    const tags = tagData.map((tag) => tag.get({ plain: true }));
+
     if (categoryData == "") {
       const createCategories = await Category.bulkCreate(categoriesData, {
         individualHooks: true,
@@ -30,6 +36,7 @@ router.get('/', async (req, res) => {
     const categories = categoryData.map((category) => category.get({ plain: true }));
 
     res.render('homepage', {
+      tags,
       categories,
       logged_in: req.session.logged_in
     })
@@ -78,10 +85,15 @@ router.get('/category/:id', async (req, res) => {
 
 //This should be the get call for each event after clicking it in the category, it includes the user as participants and the messages 
 
-router.get('/event/:id', async (req, res) => {
+router.get('/event/:id', withAuth, async (req, res) => {
   try {
     const eventData = await Event.findByPk(req.params.id, {
       include: [
+        {
+          model: Tag,
+          through: EventTag,
+          as: 'event_tags'
+        },
         {
           model: User,
           attributes: ['name'],
@@ -121,7 +133,7 @@ router.get('/event/:id', async (req, res) => {
   }
 });
 
-router.get('/event_editor/:id', async (req, res) => {
+router.get('/event_editor/:id', withAuth, async (req, res) => {
   try {
     const eventData = await Event.findByPk(req.params.id, {
       include: [
@@ -206,7 +218,64 @@ router.get('/myevents', withAuth, async (req, res) => {
   }
 });
 
+//This for tags
+router.get('/tag/:id', async (req, res) => {
+  try {
+    const tagData = await Tag.findByPk(req.params.id, {
+      include: [{ model: Event, through: EventTag, as: 'tagged_events' }]
+    });
 
+    console.log(tagData)
+
+    if (!tagData) {
+      res.status(404).json({ message: 'No events found with this tag!' });
+      return;
+    }
+
+    const tag = tagData.get({ plain: true });
+    tag.tagged_events.sort((a, b) => (a.date_celebration > b.date_celebration) ? 1 : ((b.date_celebration > a.date_celebration) ? -1 : 0));
+
+    res.render('tagged_events', { 
+      ...tag,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+    });
+  
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/addtags/:id', withAuth, async (req, res) => {
+  try {
+    const eventData = await Event.findByPk(req.params.id, {
+      include: [
+        
+        {
+          model: Tag,
+          through: EventTag,
+          as: 'event_tags'
+        },
+      ],
+    });
+
+    const tagData = await Tag.findAll()
+
+    const tags = tagData.map((tag) => tag.get({ plain: true }));
+    const event = eventData.get({ plain: true });
+
+    res.render('addtags', { 
+      tags,
+      ...event,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 router.get('/login', (req, res) => {
@@ -217,6 +286,8 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+
 
 
 

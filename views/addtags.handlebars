@@ -1,0 +1,29 @@
+<div>
+    <h2>{{name}}</h2>
+    <div>
+        {{#each event_tags as |tag|}}
+        <div style="border: solid 3px white">
+        <span> {{tag.name}} </span>
+        </div>
+        {{/each}}
+    </div>
+    <div  id="list-tags">
+        <h3>List of all tags: </h3>
+        {{#each tags as |tag|}}
+        <div style="border: solid 3px black">
+        <span> {{tag.tag_name}} </span>
+        <button id="delete-tag" data-id="{{tag.id}}">Delete from everywhere</button>
+        </div>
+        {{/each}}
+    </div>
+    <div>
+    <form id="new-tag" data-id="{{id}}">
+        <textarea id="tag" name="tag" rows="1" cols="15"></textarea>
+        <button type="submit">Add tag to event</button>
+    </form>
+    </div>
+
+    <a href="/event/{{id}}">Back to event</a>
+
+</div>
+  <script src="/js/tags.js"></script>
