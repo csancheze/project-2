@@ -7,14 +7,14 @@ Select a category:
 {{#each categories as |category|}}
   <a href="/category/{{category.id}}" class="col-11 col-sm-3 p-0 m-2 category rounded-3 btn-outline-primary">
       <div class="d-flex justify-content-center p-2 align-middle">
-      <h4 class="category-title">{{category.name}}</h4>
+      <h4 class="display-5 category-title">{{category.name}}</h4>
       </div>
   </a>
 {{/each}}
 </div>
 
 
-<div class="comment-list mb-0" style="width: 100%; display:inline-block; margin-top: 70px; height:100px; white-space:nowrap;" >
+<div class="comment-list rounded mb-0 p-1" style="width: 100%; display:inline-block; margin-top: 70px; height:100px; white-space:nowrap;" >
   <span class="p-2">Tags:</span>
   
   {{#each tags as |tag|}}
