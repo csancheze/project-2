@@ -14,9 +14,9 @@
         <a class="btn btn-secondary" href="/addtags/{{id}}">Add tags</a>
         </div>
 
-        <h3 id="event-data" class="content mb-4">{{content}}</h3>
+        <p style=" font-size: 20pt; padding:5px; height: 200px; overflow:auto; color:white; box-shadow: inset 0 0 5px black" id="event-data" class="event-content">{{content}}</p>
         <p id="event-data" class="mb-0">Category: {{category.name}}</p>
-        <p id="event-data" class="mb-0">Date of the event: {{format_date date_celebration}}</p>
+        <p id="event-data" class="mb-0">Date of the event: {{format_date date_celebration}} at {{format_time  date_celebration}}</p>
         <h3 id="event-data" class="mb-4">Participants: {{#each participants as |participant|}}
         <span> "{{participant.name}}" </span>
         {{/each}}</h3>
