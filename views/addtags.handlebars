@@ -1,18 +1,20 @@
-<div id="event-container" style="text-align:center; font-size:large">
+<div class="rounded" id="event-container" style="text-align:center; font-size:large">
      <div class="p-3" id="list-tags">
         <h3>List of all tags: </h3>
+        <div  style=" height:100px; overflow:auto;">
         {{#each tags as |tag|}}
-        <div style="border: solid 3px white; width:fit-content; display:inline-block">
+        <div class="m-1" style=" border: solid 3px white; width:fit-content; display:inline-block">
         <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span>
         </div>
         {{/each}}
+        </div>
     </div>
      <h4 class="event-title" style="color:var(--third-color)" data-id="{{id}}">Event: {{title}}</h4>
     <div class="p-3">
         <h2>This event tags:</h2>
         {{#each event_tags as |tag|}}
         <div style="border: solid 3px black; width:fit-content; display:inline-block" >
-        <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span><button style="font-size:small"class="is_button delete-tag" data-id="{{id}}">Delete</button>
+        <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span><button style="font-size:small"class="is_button delete-tag" data-id="{{tag.id}}">Delete</button>
         </div>
         {{/each}}
     </div>
