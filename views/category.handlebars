@@ -1,10 +1,11 @@
 <div class="row d-flex justify-content-center">
 {{#each events as |event|}}
-<a href="/event/{{event.id}}" class="col-11 col-sm-3 p-0 m-2 category rounded-pill btn-outline-primary">
-      <div class="d-flex justify-content-center p-2">
-        <h4 class="category-title">{{event.title}}</h4>
-        <h4 class="category-title">{{event.content}}</h4>
-        <h4 class="category-title">{{format_date event.date_created}}</h4>
+<a href="/event/{{event.id}}" class="col-12 col-sm-3 m-2 category rounded-3 btn-outline-primary">
+      <div class="p-2" id="event-container btn-outline-primary">
+        <h4 class="event-title">{{event.title}}</h4>
+        <h4 id="event-data" class="event-content">Details: {{event.content}}</h4>
+        <h4 id="event-data" class="data_celebration"> Event Date: {{format_date event.date_celebration format_time event.date_celebration}}</h4>
+        <h4 class="author">Posted by: {{event.user.name}} on {{format_date date_created}}</h4>
         </div>
       </a>
 {{/each}}
