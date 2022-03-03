@@ -131,7 +131,7 @@ footer {
     cursor: pointer;
   }
  
-#logout, #new-event-button, #create-button, #update-button, #participate-button, #dont-button {
+#logout, #new-event-button, #create-button, #update-button, #participate-button, #dont-button, #delete-button, #update-button, #message-button, #add-tags, .is_button {
     box-shadow: 0px 0px 0px transparent;
     border: 0px solid transparent;
     text-shadow: 0px 0px 0px transparent;
