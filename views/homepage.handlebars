@@ -1,20 +1,30 @@
 <div class="d-flex justify-content-center" id="subtitle">
 Select a category:
 </div>
-<div class="row d-flex justify-content-center">
-{{#each categories as |category|}}
-<a href="/category/{{category.id}}" class="col-11 col-sm-3 p-0 m-2 category rounded-3 btn-outline-primary">
-      <div class="d-flex justify-content-center p-2 align-middle">
-        <h4 class="category-title">{{category.name}}</h4>
-        </div>
-      </a>
-{{/each}}
 
- <div>
-      <p>Tags:</p>
-     {{#each tags as |tag|}}
-      <a href="/tag/{{tag.id}}">{{tag.tag_name}}</a>
-    </div>
-    {{/each}}
-  </div>
+<div class="row d-flex justify-content-center">
+
+{{#each categories as |category|}}
+  <a href="/category/{{category.id}}" class="col-11 col-sm-3 p-0 m-2 category rounded-3 btn-outline-primary">
+      <div class="d-flex justify-content-center p-2 align-middle">
+      <h4 class="category-title">{{category.name}}</h4>
+      </div>
+  </a>
+{{/each}}
 </div>
+
+
+<div class="comment-list mb-0" style="width: 100%; display:inline-block; margin-top: 70px; height:100px; white-space:nowrap;" >
+  <span class="p-2">Tags:</span>
+  
+  {{#each tags as |tag|}}
+  <div class= "m-2 p-1 rounded "style="border: solid 3px #5f5dbd; width:fit-content; display:inline-block" >
+    <a  class="small"style="text-decoration:none; color:black"href="/tag/{{tag.id}}">{{tag.tag_name}}</a>
+  </div>
+  {{/each}}
+</div>
+<div style="text-align: center; margin-bottom:100px">
+<button class= "btn btn-primary m-1" style="background: #5e87b8"id="left"><</button><button class="btn btn-primary m-1" style="background: #5e87b8" id="right">></button>
+</div>
+
+ <script src="/js/scroll.js"></script>

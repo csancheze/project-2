@@ -207,7 +207,7 @@ footer {
 }
 
 .comment-list {
-    overflow-y:scroll;
+    overflow-y:auto;
     max-height: 50vh;
     display: block;
 }
@@ -224,3 +224,25 @@ footer {
 #posted-by {
     font-size: 2vh;
 }
+
+/* width */
+::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--first-color); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--fourth-color)
+  } 

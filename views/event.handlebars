@@ -1,39 +1,43 @@
 <div class="row d-flex justify-content-center">
   <div class="col-12 col-sm-7 p-3 rounded-3" id="event-container">
       <div class="d-flex justify-content-between title">
-        <h4 class="event-title">{{title}}</a></h4><h6 class="author">Posted by: {{user.name}} on {{format_date date_created}}</h6>
+        <h4 class="event-title">{{title}}</a><a class="btn btn-primary" href="{{link}}">Go to the event</a></h4><h6 class="author">Posted by: {{user.name}} on {{format_date date_created}}</h6>
         </div>
   
-
-        <a href="{{link}}">Go to the event</a>
-        {{#each participants as |participant|}}
-        <span> *{{participant.name}}* </span>
-        {{/each}}
         <p>Tags:</p>
+        <div style="height:80px; overflow:auto; white-space:nowrap">
         {{#each event_tags as |tag|}}
-          <p> {{tag.tag_name}} </p>
-
+        <div style="border: solid 3px black; width:fit-content; display:inline-block">
+        <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span>
+        </div>
         {{/each}}
-        <a href="/addtags/{{id}}">Add tags</a>
+        <a class="btn btn-secondary" href="/addtags/{{id}}">Add tags</a>
+        </div>
 
-        <h3 id="event-data" class="content mb-4">{{content}}</h3>
+        <p style=" font-size: 20pt; padding:5px; height: 200px; overflow:auto; color:white; box-shadow: inset 0 0 5px black" id="event-data" class="event-content">{{content}}</p>
         <p id="event-data" class="mb-0">Category: {{category.name}}</p>
-        <p id="event-data" class="mb-0">Date of the event: {{format_date date_celebration}}</p>
+        <p id="event-data" class="mb-0">Date of the event: {{format_date date_celebration}} at {{format_time  date_celebration}}</p>
         <h3 id="event-data" class="mb-4">Participants: {{#each participants as |participant|}}
-        <span>{{participant.name}}</span>
+        <span> "{{participant.name}}" </span>
         {{/each}}</h3>
         <button id="participate-button" data-id="{{id}}" > Participate! </button>
         <button id="dont-button" data-id="{{id}}"> Don't participate</button>
+
+         
     </div>
 
+    
+  <div class="comment-list col-12 col-sm-4 rounded-3">
+    <h3 class= "p-0 m-0" style="border-bottom: #5f5dbd solid; position:sticky; top:0; background:var(--third-color); width:100%;">Event messages:</h3>
+    <div>
     {{#if messages.length}}
-  <div class="comment-list p-3 col-12 col-sm-4 rounded-3">
-    <h3>Event messages:</h3>
     {{#each messages as |message|}}
-     <div class="mb-2 p-2" id="comment"><p>{{message.content}}</p><span id="posted-by">Posted by: {{user.name}} {{format_date date_created}} {{format_time date_created}}</span></div>
+     <div style="font-weight:bold"class="m-3 p-2" id="comment"><p>{{message.content}}</p><span id="posted-by">Posted by: {{user.name}} {{format_date date_created}} {{format_time date_created}}</span></div>
     {{/each}}
+     {{/if}}
+     </div>
   </div>
-  {{/if}}
+ 
 
     </div>
 

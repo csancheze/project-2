@@ -5,15 +5,15 @@
     <form class="form update-event-form row p-3" data-id="{{id}}">
       <div class="form-group mb-3">
         <label class="row col-12" for="event-title">Title:</label>
-        <input class="form-input row col-12" type="text" id="event-title" name="event-title" placeholder="{{title}}"/>
+        <textarea class="form-input row col-12" type="text" id="event-title" name="event-title"rows="1" cols="50">{{title}}</textarea>
       </div>
       <div class="form-group mb-3">
         <label class="row col-12" for="event-content">Content:</label>
-        <input class="form-input row col-12" type="text" id="update-content" name="event-content" placeholder="{{content}}" />
+        <textarea class="form-input row col-12" type="text" id="update-content" name="event-content" maxlength="255">{{content}}</textarea>
       </div>
       <div class="form-group mb-3">
         <label class="row col-12" for="event-date">Date:</label>
-        <input class="form-input row col-12 col-sm-3" type="date" id="event-date" name="event-date" placeholder="{{format_date date_celebration}}" />
+        <input class="form-input row col-12 col-sm-4" type="datetime-local" id="event-date" name="event-date" value="{{format_date2 date_celebration}}T{{format_time date_celebration}}" />
       </div>
       <div class="form-group">
         <label for="url">Link:</label>
