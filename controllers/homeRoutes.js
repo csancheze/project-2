@@ -251,8 +251,7 @@ router.get('/addtags/:id', withAuth, async (req, res) => {
   try {
     const eventData = await Event.findByPk(req.params.id, {
       include: [
-        
-        {
+         {
           model: Tag,
           through: EventTag,
           as: 'event_tags'

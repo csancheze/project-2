@@ -1,9 +1,10 @@
 <div>
-    <h2>{{name}}</h2>
+    <h2>Event: {{title}}</h2>
     <div>
+        <p>This event tags:</p>
         {{#each event_tags as |tag|}}
         <div style="border: solid 3px white">
-        <span> {{tag.name}} </span>
+        <span> {{tag.tag_name}} </span>
         </div>
         {{/each}}
     </div>
@@ -18,7 +19,7 @@
     </div>
     <div>
     <form id="new-tag" data-id="{{id}}">
-        <textarea id="tag" name="tag" rows="1" cols="15"></textarea>
+        <textarea id="tag" name="tag" rows="1" cols="50"></textarea>
         <button type="submit">Add tag to event</button>
     </form>
     </div>

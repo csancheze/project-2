@@ -6,9 +6,7 @@
   
 
         <a href="{{link}}">Go to the event</a>
-        {{#each participants as |participant|}}
-        <span> *{{participant.name}}* </span>
-        {{/each}}
+     
         <p>Tags:</p>
         {{#each event_tags as |tag|}}
           <p> {{tag.tag_name}} </p>
