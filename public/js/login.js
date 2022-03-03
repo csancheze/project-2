@@ -13,7 +13,7 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       alert('Welcome!')
-      document.location.replace('/');
+      document.location.replace(document.referrer)
     } else {
       alert('Failed to log in.');
     }
@@ -36,7 +36,7 @@ const signupFormHandler = async (event) => {
 
     if (response.ok) {
       alert('Welcome!')
-      document.location.replace('/');
+      document.location.replace(document.referrer);
     } else {
       alert('Failed to sign up.');
     }
