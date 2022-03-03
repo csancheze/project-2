@@ -10,6 +10,8 @@
 body {
     background-color: var(--third-color);
     font-family: var(--title-font);
+    margin:0;
+    padding:0;
 }
 
 header {
@@ -35,21 +37,25 @@ nav, nav a {
     font-size: 8vh;
 }
 
-#select-category {
+#subtitle {
     margin-bottom: 10px;
     font-size: 5vh;
     color: var(--first-color);
+    margin-bottom: 25px;
 }
 
 .category {
     background-color: var(--second-color);
-    height: 13vh;
     text-decoration: none;
 }
 
 .category h4 {
     text-decoration: none;
     color: white;
+}
+
+.category-title {
+    padding: 13% 0;
 }
 
 .btn-outline-primary {
@@ -68,6 +74,8 @@ footer {
 
 .login-form, .signup-form {
     margin-bottom: 20px;
+    font-size: 3vh;
+    color: var(--first-color);
 }
 
 #login-button, #signup-button {
@@ -79,12 +87,13 @@ footer {
     position: absolute;
     z-index: 2;
     top: 10%;
-    left: 35%;
+    left: 30%;
     margin: auto;
     width:fit-content;
     height: fit-content;
     max-width: 100%;
     max-height: 100%;
+    color: var(--first-color);
 }
 @media (max-width: 948px) {
     #myForm {
@@ -118,4 +127,100 @@ footer {
     cursor: pointer;
   }
  
- 
+#logout, #new-event-button, #create-button, #update-button, #participate-button, #dont-button {
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    border-radius: 5px;
+    background-color: var(--third-color);
+    color: var(--first-color);
+    font-size: 3vh;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    margin-right: 10px;
+}
+
+#event-container, #event-container a, #my-events, #my-events a {
+    text-decoration: none;
+    background-color: var(--second-color);
+    margin-bottom: 20px;
+    color: white;
+    margin-right: 10px;
+}
+
+.event-title {
+    text-align: center;
+    font-size: 4vh;
+    font-weight: bolder;
+}
+
+.event-content {
+    font-size: 3vh;
+}
+
+.date-celebration {
+    font-size: 3vh;
+}
+
+.author {
+    font-size: 2vh;
+    text-align: end;
+}
+
+.event-list, .new-event-button {
+    margin-bottom: 60px;
+}
+
+#new-event-button {
+    border: solid #5f5dbd;
+    font-size: 3vh;
+}
+
+#create-button, #update-button, #login-button, #signup-button, #message-button {
+    background-color: #5f5dbd;
+    color: white;
+    margin-right: 0;
+}
+
+.update-event-form, .comment-list {
+    border: #5f5dbd solid;
+    font-size: 3vh;
+    color: var(--first-color);
+    margin-bottom: 40px;
+}
+
+#delete-button {
+    display: inline-block;
+    width: auto;
+    font-size: 3vh;
+    background-color: red;
+    color: white;
+}
+
+.event-date {
+    font-size: 2vh;
+}
+
+.content {
+    font-size: 3vh;
+}
+
+.comment-list {
+    overflow-y:scroll;
+    max-height: 50vh;
+    display: block;
+}
+
+#event-data, #event-data h3 {
+    font-size: 3vh;
+}
+
+#comment {
+    border: #5f5dbd dashed;
+    border-radius: 3px;
+}
+
+#posted-by {
+    font-size: 2vh;
+}
