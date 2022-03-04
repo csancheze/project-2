@@ -62,7 +62,8 @@ router.get('/category/:id', async (req, res) => {
       ],
     });
 
-    const now = new Date();
+    const now = new Date()
+    now.setHours(now.getHours()-2)
 
     const category = categoryData.get({ plain: true });
     console.log(category);
@@ -233,7 +234,12 @@ router.get('/tag/:id', async (req, res) => {
       return;
     }
 
+    const now = new Date()
+    now.setHours(now.getHours()-2)
+
     const tag = tagData.get({ plain: true });
+    console.log(tag)
+    tag.tagged_events =  tag.tagged_events.filter(event => event.date_celebration.getTime() >= now.getTime());
     tag.tagged_events.sort((a, b) => (a.date_celebration > b.date_celebration) ? 1 : ((b.date_celebration > a.date_celebration) ? -1 : 0));
 
     res.render('tagged_events', { 
