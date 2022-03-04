@@ -29,7 +29,7 @@ const myEventFormHandler = async (event) => {
     
         if (response.ok) {
           alert('Your event was updated')
-          window.location = document.referrer
+          window.location.reload();
         } else {
             alert('Failed to update event');
         }

@@ -4,14 +4,14 @@
         <h4 class="event-title">{{title}}</a><a class="btn btn-primary" href="{{link}}">Go to the event</a></h4><h6 class="author">Posted by: {{user.name}} on {{format_date date_created}}</h6>
         </div>
   
-        <p>Tags:</p>
-        <div style="height:80px; overflow:auto; white-space:nowrap">
+        <h3 id="event-data">Tags:</p>
+        <div class= "m-2" style="height:80px; overflow:auto; white-space:nowrap">
         {{#each event_tags as |tag|}}
         <div style="border: solid 3px black; width:fit-content; display:inline-block">
-        <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span>
+        <span class="p-2 " style="font-weight: bold; font-size:smaller"> {{tag.tag_name}} </span>
         </div>
         {{/each}}
-        <a class="btn btn-secondary" href="/addtags/{{id}}">Add tags</a>
+        <a  class="btn" id="add-tags" style="background:var(--third-color)" href="/addtags/{{id}}">Add tags</a>
         </div>
 
         <p style=" font-size: 20pt; padding:5px; height: 200px; overflow:auto; color:white; box-shadow: inset 0 0 5px black" id="event-data" class="event-content">{{content}}</p>
@@ -34,6 +34,8 @@
     {{#each messages as |message|}}
      <div style="font-weight:bold"class="m-3 p-2" id="comment"><p>{{message.content}}</p><span id="posted-by">Posted by: {{user.name}} {{format_date date_created}} {{format_time date_created}}</span></div>
     {{/each}}
+    {{else}}
+    <h3>There are no messages yet.</h3>
      {{/if}}
      </div>
   </div>

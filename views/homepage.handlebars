@@ -7,14 +7,14 @@ Select a category:
 {{#each categories as |category|}}
   <a href="/category/{{category.id}}" class="col-11 col-sm-3 p-0 m-2 category rounded-3 btn-outline-primary">
       <div class="d-flex justify-content-center p-2 align-middle">
-      <h4 class="category-title">{{category.name}}</h4>
+      <h4 class="display-5 category-title">{{category.name}}</h4>
       </div>
   </a>
 {{/each}}
 </div>
 
 
-<div class="comment-list mb-0" style="width: 100%; display:inline-block; margin-top: 70px; height:100px; white-space:nowrap;" >
+<div class="comment-list rounded mb-0 p-1" style="width: 100%; display:inline-block; margin-top: 70px; height:100px; white-space:nowrap;" >
   <span class="p-2">Tags:</span>
   
   {{#each tags as |tag|}}
@@ -27,4 +27,22 @@ Select a category:
 <button class= "btn btn-primary m-1" style="background: #5e87b8"id="left"><</button><button class="btn btn-primary m-1" style="background: #5e87b8" id="right">></button>
 </div>
 
- <script src="/js/scroll.js"></script>
+<div id="myForm" style=" width: 90%; display:none; left:5%">
+    <div  id="close" style="display:none">
+      <button class="btn btn-danger" type="button" onclick="showForm()">X</button>
+    </div>
+    <div class="container rounded p-5"  style="display: block; ; background:var(--third-color);font-size:15pt; font-weight: bold;">
+    <h2 class="display-4">Welcome to ü meet!</h1>
+    <ul>
+    <li>Ü Meet helps you create online meetings and events with your friends and people around the world with your same interests.</li>
+    <li>Select a category to find events according to your interests or checkout the tags to look for something more specific</li>
+    <li>Sign up to participate, create events and write messages.</li>
+    <li>Enter your profile to add and edit events. Also check the events you have already created.</li>
+    <li>In your ü meets events tab, see the events in which you are participating. </li>
+    <li>Receive an email everytime someone creates an event in a category of your interest. You have to suscribe as participant to an event of that category first.</li>
+    <li>Have fun and relax.</li>
+    </ul>
+    </div>
+</div>
+
+ <script src="/js/homepage.js"></script>

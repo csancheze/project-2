@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Tag, EventTag } = require('../../models');
 
-
+//Create a tag (if it is not created) and an event tag relation
 router.post('/', async (req, res) => {
   try {
     const tagData = await Tag.findAll();
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-
+//Delete the tag
 router.delete('/:id', async (req, res) => {
   try {
     const tagData = await Tag.destroy({
