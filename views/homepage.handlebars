@@ -12,12 +12,12 @@ Select a category:
   </a>
 {{/each}}
 </div>
-
-
-<div style="width: 100%; display:inline-block; margin-top: 70px; white-space:nowrap;" class="d-flex justify-content-center mt-2 comment-list rounded mb-0 p-1" >
+<div id="subtitle" class="d-flex justify-content-center mb-0">
   <span class="p-2">Search by Tags:</span>
+  </div>
+<div style="width: 100%; display:inline-block; margin-top: 70px; white-space:nowrap;" id="tag-list" class="d-flex justify-content-center mt-0 rounded mb-0 p-1" >
   {{#each tags as |tag|}}
-  <div class= "m-1" style="display: inline-block;">
+  <div style="display: inline-block;">
     <a id="tags" class="p-2 small"href="/tag/{{tag.id}}">{{tag.tag_name}}</a>
   </div>
   {{/each}}

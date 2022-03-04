@@ -260,3 +260,9 @@ footer {
 #goback-button {
     display: inline-block;
 }
+
+#tag-list {
+    font-size: 3vh;
+    color: var(--first-color);
+    margin-bottom: 10px;
+}
