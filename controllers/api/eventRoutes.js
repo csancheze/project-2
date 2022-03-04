@@ -54,7 +54,7 @@ router.post('/', withAuth, async (req, res) => {
       console.log(category.name)
 
       const mailOptions = {
-          from: `umeetmailer@gmail.com`,
+          from: `umeet.mailer@gmail.com`,
           to: arrEmail,
           subject: `New Event`,
           text: `Hey! Someone has created a new event that might interest you! Come back to see what's happening at Ü Meet`,
