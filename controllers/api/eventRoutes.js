@@ -8,8 +8,13 @@ require('dotenv').config();
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
+<<<<<<< HEAD
     user: process.env.USERNAME,
     pass: process.env.USER_PW
+=======
+    user: USERNAME,
+    pass: USER_PW
+>>>>>>> f38fffcf8ab65e5a2c5eddabf9bb9bfc04146487
   },
   tls: {
     rejectUnauthorized: false
@@ -58,7 +63,7 @@ router.post('/', withAuth, async (req, res) => {
           to: arrEmail,
           subject: `New Event`,
           text: `Hey! Someone has created a new event that might interest you! Come back to see what's happening at Ü Meet`,
-          html: generateEmail(category.name),
+          html: generateEmail(category.name,category.id),
           replyTo: `umeet.mailer@gmail.com`
       }
       transporter.sendMail(mailOptions, function(err, res) {

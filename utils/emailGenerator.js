@@ -1,4 +1,4 @@
-function generateEmail(category) {
+function generateEmail(category, id) {
     return `<html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -16,6 +16,7 @@ function generateEmail(category) {
         </header>
         <main>
         <a style="text-decoration: none; text-align:center" href="#"><p style="color:white; font-size: large; text-align:center">Hey! Someone has created a new event in ${category} that might interest you! Come back to see what's happening at Ü Meet<p></a>
+        <p>https://u-meet-app.herokuapp.com/category/${id}</p>
         </main>
     </body>
     </html>`
