@@ -1,30 +1,33 @@
-<div>
-     <div class="p-3" id="list-tags">
-        <h3>List of all tags: </h3>
-        {{#each tags as |tag|}}
-        <div style="border: solid 3px white; width:fit-content; display:inline-block">
-        <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span>
-        </div>
-        {{/each}}
-    </div>
-    <h2>Event: {{title}}</h2>
-    <div class="p-3">
-        <p>This event tags:</p>
+<div class="row d-flex justify-content-center">
+    <div class="col-12 col-sm-7">
+    <div>
+        <h2 id="subtitle"><b>Event name:</b> {{title}}</h2>
+        <p id="subtitle"><b>This event tags:</b></p>
         {{#each event_tags as |tag|}}
-        <div style="border: solid 3px black; width:fit-content; display:inline-block" >
-        <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span><button id="delete-tag" data-id="{{tag.id}}">Delete</button>
+        <div id="delete-tag">
+        <span> {{tag.tag_name}} </span><button id="delete-tag-button" data-id="{{tag.id}}">❌</button>
         </div>
         {{/each}}
     </div>
    
     <div>
-    <form id="new-tag" data-id="{{id}}">
-        <textarea id="tag" name="tag" rows="1" cols="50"></textarea>
-        <button type="submit">Add tag to event</button>
+    <form class="mb-1" id="new-tag" data-id="{{id}}">
+        <textarea id="tag" name="tag" rows="1" cols="40"></textarea>
+        <button id="add-tag" type="submit">Add tag</button>
     </form>
     </div>
-
-    <a class="btn btn-secondary"href="/event/{{id}}">Back to event</a>
+    </div>
+    <div class="col-12 col-sm-3" id="list-tags">
+        <h3 id="subtitle"><b>List of all tags:</b>  </h3>
+        {{#each tags as |tag|}}
+        <div id="tags">
+        <span> {{tag.tag_name}} </span>
+        </div>
+        {{/each}}
+    </div>
 
 </div>
+<div class="d-flex justify-content-center mt-5 mb-5">
+    <a id="goback-button" class="btn"href="/event/{{id}}">Back to event</a>
+    </div>
   <script src="/js/tags.js"></script>
