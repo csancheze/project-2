@@ -1,5 +1,5 @@
-<div class="row d-flex justify-content-center mb-5">
-  <div class="col-12 col-sm-5 p-3 rounded-3 mb-5" id="event-container">
+<div class="row d-flex justify-content-center m-2 mb-5">
+  <div class="col-12 col-sm-6 p-3 rounded-3 mb-5" id="event-container">
       <div class="d-flex justify-content-between title">
         <h4 class="event-title">{{title}}</a></h4><h6 class="author">Posted by: {{user.name}} on {{format_date date_created}}</h6>
         </div>
@@ -25,10 +25,10 @@
         <a style="text-decoration: underline;" id="add-tag" href="/addtags/{{id}}">+ Add new tags</a>   
     </div>
 
-  <div class="col-12 col-sm-4">
+  <div class="col-12 col-sm-5">
   <div class="comment-list rounded-3">
-    <h3 class= "p-0 m-0" style="border-bottom: #5f5dbd solid; position:sticky; top:0; background:var(--third-color); width:100%;">Event messages:</h3>
-    <div>
+    <h3 class= "p-2 m-0" style="border-bottom: #5f5dbd solid; position:sticky; top:0; background:var(--third-color); width:100%;">Event messages:</h3>
+    <div class="p-2">
     {{#if messages.length}}
     {{#each messages as |message|}}
      <div style="font-weight:bold"class="m-3 p-2" id="comment"><p class="mb-0">{{message.content}}</p><span id="posted-by">Posted by: {{user.name}} on {{format_date date_created}} {{format_time date_created}}</span></div>

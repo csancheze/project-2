@@ -3,6 +3,7 @@
 {{#each events as |event|}}
 <a href="/event/{{event.id}}" class="col-12 col-sm-6 col-md-3 m-2 category rounded-3 btn-outline-primary event-card" data-id="{{event.date_celebration}}">
       <div  class="p-2" id="event-container btn-outline-primary" >
+        <h6 id="event-status"></h6>
         <h4 class="event-title">{{event.title}}</h4>
         <p style="height: 100px; overflow:auto; box-shadow: inset 0 0 5px black" id="event-data" id="event-data" class="p-2 event-content">Details: {{event.content}}</p>
         <h4 class="date_celebration"> Event Date: <br>{{format_date event.date_celebration}} at {{format_time event.date_celebration}}</h4>
