@@ -6,7 +6,7 @@ const generateEmail = require('../../utils/emailGenerator')
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: USER,
+    user: USERNAME,
     pass: USER_PW
   },
   tls: {
@@ -56,7 +56,7 @@ router.post('/', withAuth, async (req, res) => {
           to: arrEmail,
           subject: `New Event`,
           text: `Hey! Someone has created a new event that might interest you! Come back to see what's happening at Ü Meet`,
-          html: generateEmail(category.name),
+          html: generateEmail(category.name,category.id),
           replyTo: `umeet.mailer@gmail.com`
       }
       transporter.sendMail(mailOptions, function(err, res) {
