@@ -1,9 +1,9 @@
-
+setTimeout(function() {
+    location.reload();
+  }, 60000 * 30);
 
 window.addEventListener('DOMContentLoaded', function () {
     const eventCards = document.getElementsByClassName("event-card")
-
-
 
 for (i = 0; i < eventCards.length; i++) {
     const date = new Date(eventCards[i].getAttribute('data-id'))
