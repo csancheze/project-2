@@ -6,8 +6,8 @@ const generateEmail = require('../../utils/emailGenerator')
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'umeet.mailer@gmail.com',
-    pass: 'Bootcamp90'
+    user: USER,
+    pass: USER_PW
   },
   tls: {
     rejectUnauthorized: false
