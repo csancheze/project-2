@@ -3,11 +3,18 @@ const { Event, Category, User, UserEvent} = require('../../models');
 const withAuth = require('../../utils/auth')
 const nodemailer = require('nodemailer')
 const generateEmail = require('../../utils/emailGenerator')
+require('dotenv').config();
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
+<<<<<<< HEAD
+    user: process.env.USERNAME,
+    pass: process.env.USER_PW
+=======
     user: USERNAME,
     pass: USER_PW
+>>>>>>> f38fffcf8ab65e5a2c5eddabf9bb9bfc04146487
   },
   tls: {
     rejectUnauthorized: false
