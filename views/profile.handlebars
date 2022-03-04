@@ -7,13 +7,15 @@
 <div class="row">
 {{#if events.length}}
   <div class="col-12 event-list" id="subtitle">
-    <h3>This are your created events:</h3>
+    <h3>Select your created event to edit:</h3>
     <div class="row d-flex justify-content-center mt-5">
     {{#each events as |event|}}
     <a href="/event_editor/{{event.id}}" id="my-events" class="rounded-3 col-12 col-sm-3 btn-outline-primary m-2">
       <div class="d-flex justify-content-between title p-2 row">
         <h4 class="event-title col-12">{{event.title}}</h4>
-        <h4 class="col-12 text-center event-date">Event date: {{format_date event.date_celebration}}</h4>
+        
+        <h4 class="col-12 text-center event-date">Event date: {{format_date event.date_celebration}} at {{format_time event.date_celebration}}</h4>
+       
         </div>
         </a>
     {{/each}}
@@ -24,7 +26,7 @@
          <button type="button" id="new-event-button" onclick="showForm()">+ Add New Event</button>
   </div>
       <div id="close" style="display:none">
-      <button type="button" onclick="showForm()">X</button>
+      <button class="btn btn-danger" type="button" onclick="showForm()">X</button>
     </div> 
   <div class="row p-0 col-12" style="display:none" id ="myForm">
   <div class="p-4 rounded-3" style="background-color: var(--third-color)">

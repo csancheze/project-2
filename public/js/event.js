@@ -27,7 +27,7 @@ const eventFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            alert('Event created')
+            alert('Event created. An email has been sent to all users who are interested in this category.')
             document.location.replace('/profile');
         } else {
             alert('Failed to create the event.');

@@ -14,9 +14,8 @@ Select a category:
 </div>
 
 
-<div style="width: 100%; display:inline-block;" class="d-flex justify-content-center mt-2" >
+<div style="width: 100%; display:inline-block; white-space:nowrap; height: 200px;" class="d-flex justify-content-center mt-2" >
   <span class="p-2">Search by Tags:</span>
-  
   {{#each tags as |tag|}}
   <div class= "m-1" style="display: inline-block;">
     <a id="tags" class="p-2 small"href="/tag/{{tag.id}}">{{tag.tag_name}}</a>
@@ -27,4 +26,22 @@ Select a category:
 <button class= "btn btn-primary m-1" style="background: #5e87b8"id="left"></button><button class="btn btn-primary m-1" style="background: #5e87b8" id="right">></button>
 </div>
 
- <script src="/js/scroll.js"></script>
+<div id="myForm" style=" width: 90%; display:none; left:5%">
+    <div  id="close" style="display:none">
+      <button class="btn btn-danger" type="button" onclick="showForm()">X</button>
+    </div>
+    <div class="container rounded p-5"  style="display: block; ; background:var(--third-color);font-size:15pt; font-weight: bold;">
+    <h2 class="display-4">Welcome to ü meet!</h1>
+    <ul>
+    <li>Ü Meet helps you create online meetings and events with your friends and people around the world with your same interests.</li>
+    <li>Select a category to find events according to your interests or checkout the tags to look for something more specific</li>
+    <li>Sign up to participate, create events and write messages.</li>
+    <li>Enter your profile to add and edit events. Also check the events you have already created.</li>
+    <li>In your ü meets events tab, see the events in which you are participating. </li>
+    <li>Receive an email everytime someone creates an event in a category of your interest. You have to suscribe as participant to an event of that category first.</li>
+    <li>Have fun and relax.</li>
+    </ul>
+    </div>
+</div>
+
+ <script src="/js/homepage.js"></script>
