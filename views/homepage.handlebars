@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center" id="subtitle">
+<div class="d-flex justify-content-center mb-0" id="subtitle">
 Select a category:
 </div>
 
@@ -7,24 +7,23 @@ Select a category:
 {{#each categories as |category|}}
   <a href="/category/{{category.id}}" class="col-11 col-sm-3 p-0 m-2 category rounded-3 btn-outline-primary">
       <div class="d-flex justify-content-center p-2 align-middle">
-      <h4 class="display-5 category-title">{{category.name}}</h4>
+      <h4 class="category-title">{{category.name}} <span class="bi bi-controller"></span></h4>
       </div>
   </a>
 {{/each}}
 </div>
 
 
-<div class="comment-list rounded mb-0 p-1" style="width: 100%; display:inline-block; margin-top: 70px; height:100px; white-space:nowrap;" >
-  <span class="p-2">Tags:</span>
-  
+<div style="width: 100%; display:inline-block; white-space:nowrap; height: 200px;" class="d-flex justify-content-center mt-2" >
+  <span class="p-2">Search by Tags:</span>
   {{#each tags as |tag|}}
-  <div class= "m-2 p-1 rounded "style="border: solid 3px #5f5dbd; width:fit-content; display:inline-block" >
-    <a  class="small"style="text-decoration:none; color:black"href="/tag/{{tag.id}}">{{tag.tag_name}}</a>
+  <div class= "m-1" style="display: inline-block;">
+    <a id="tags" class="p-2 small"href="/tag/{{tag.id}}">{{tag.tag_name}}</a>
   </div>
   {{/each}}
 </div>
 <div style="text-align: center; margin-bottom:100px">
-<button class= "btn btn-primary m-1" style="background: #5e87b8"id="left"><</button><button class="btn btn-primary m-1" style="background: #5e87b8" id="right">></button>
+<button class= "btn btn-primary m-1" style="background: #5e87b8"id="left"></button><button class="btn btn-primary m-1" style="background: #5e87b8" id="right">></button>
 </div>
 
 <div id="myForm" style=" width: 90%; display:none; left:5%">

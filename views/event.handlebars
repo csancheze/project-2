@@ -1,60 +1,57 @@
-<div class="row d-flex justify-content-center">
-  <div class="col-12 col-sm-7 p-3 rounded-3" id="event-container">
+<div class="row d-flex justify-content-center mb-5">
+  <div class="col-12 col-sm-5 p-3 rounded-3 mb-5" id="event-container">
       <div class="d-flex justify-content-between title">
-        <h4 class="event-title">{{title}}</a><a class="btn btn-primary" href="{{link}}">Go to the event</a></h4><h6 class="author">Posted by: {{user.name}} on {{format_date date_created}}</h6>
-        </div>
-  
-        <h3 id="event-data">Tags:</p>
-        <div class= "m-2" style="height:80px; overflow:auto; white-space:nowrap">
-        {{#each event_tags as |tag|}}
-        <div style="border: solid 3px black; width:fit-content; display:inline-block">
-        <span class="p-2 " style="font-weight: bold; font-size:smaller"> {{tag.tag_name}} </span>
-        </div>
-        {{/each}}
-        <a  class="btn" id="add-tags" style="background:var(--third-color)" href="/addtags/{{id}}">Add tags</a>
+        <h4 class="event-title">{{title}}</a></h4><h6 class="author">Posted by: {{user.name}} on {{format_date date_created}}</h6>
         </div>
 
-        <p style=" font-size: 20pt; padding:5px; height: 200px; overflow:auto; color:white; box-shadow: inset 0 0 5px black" id="event-data" class="event-content">{{content}}</p>
+        <p style="height: 100px; overflow:auto; box-shadow: inset 0 0 5px black" id="event-data" class="p-2 event-content">{{content}}</p>
         <p id="event-data" class="mb-0">Category: {{category.name}}</p>
+        <p id="event-data" class="mb-0">Link to event: <a id="join-event" style="text-decoration: underline;" href="{{link}}">Join</a> </p>
         <p id="event-data" class="mb-0">Date of the event: {{format_date date_celebration}} at {{format_time  date_celebration}}</p>
-        <h3 id="event-data" class="mb-4">Participants: {{#each participants as |participant|}}
-        <span> "{{participant.name}}" </span>
+        <h3 id="event-data" class="mb-2">Confirmed participants: {{#each participants as |participant|}}
+        <span> {{participant.name}} </span>
         {{/each}}</h3>
         <button id="participate-button" data-id="{{id}}" > Participate! </button>
         <button id="dont-button" data-id="{{id}}"> Don't participate</button>
 
-         
+    <p class="mb-0">Tags:</p>
+        <div style="overflow:auto; white-space:nowrap">
+        {{#each event_tags as |tag|}}
+        <div id="tags" class="p-1">
+        <span style="font-weight: bold"> {{tag.tag_name}} </span>
+        </div>
+        {{/each}}
+        </div>
+        <a style="text-decoration: underline;" id="add-tag" href="/addtags/{{id}}">+ Add new tags</a>   
     </div>
 
-    
-  <div class="comment-list col-12 col-sm-4 rounded-3">
+  <div class="col-12 col-sm-4">
+  <div class="comment-list rounded-3">
     <h3 class= "p-0 m-0" style="border-bottom: #5f5dbd solid; position:sticky; top:0; background:var(--third-color); width:100%;">Event messages:</h3>
     <div>
     {{#if messages.length}}
     {{#each messages as |message|}}
-     <div style="font-weight:bold"class="m-3 p-2" id="comment"><p>{{message.content}}</p><span id="posted-by">Posted by: {{user.name}} {{format_date date_created}} {{format_time date_created}}</span></div>
+     <div style="font-weight:bold"class="m-3 p-2" id="comment"><p class="mb-0">{{message.content}}</p><span id="posted-by">Posted by: {{user.name}} on {{format_date date_created}} {{format_time date_created}}</span></div>
     {{/each}}
     {{else}}
     <h3>There are no messages yet.</h3>
      {{/if}}
      </div>
   </div>
- 
-
-    </div>
-
-<div class="row rounded-3 d-flex justify-content-center" style="margin-bottom: 100px">
-<form class="form message-form col-5" data-id="{{id}}">
+  <div class="row rounded-3 d-flex justify-content-center">
+<form class="form message-form col-12" data-id="{{id}}">
       <div class="form-group m-2">
         <label class="col-12" for="add-message">Add a message:</label>
-        <textarea class="form-input col-12" type="text" id="add-message"></textarea>
+        <textarea class="form-input col-12" rows="1" type="text" id="add-message"></textarea>
       </div>
       <div class="form-group d-flex justify-content-center">
         <button class="btn" type="submit" id="message-button">Post</button>
       </div>
-      
 </form>
 </div>
+</div>
+
+  </div>
 
   <script src="/js/message.js"></script>
   <script src="/js/userEvent.js"></script>
