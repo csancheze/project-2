@@ -12,10 +12,11 @@ function generateEmail(category, id) {
     </head>
     <body style="font-family: 'League Spartan', sans-serif; background-color: #83cee0;; ">
         <header style="background-color:#5f5dbd;">
-            <a style="text-decoration: none; href="https://u-meet-app.herokuapp.com/"><h1 style="text-align:center; font-size: 50pt; color:#83cee0">Ü Meet</h1></a>
+            <a style="text-decoration: none; href="#"><h1 style="text-align:center; font-size: 50pt; color:#83cee0">Ü Meet</h1></a>
         </header>
         <main>
-        <a style="text-decoration: none; text-align:center" href="https://u-meet-app.herokuapp.com/category/${id}"><p style="color:white; font-size: large; text-align:center">Hey! Someone has created a new event in ${category} that might interest you! Come back to see what's happening at Ü Meet<p></a>
+        <a style="text-decoration: none; text-align:center" href="#"><p style="color:white; font-size: large; text-align:center">Hey! Someone has created a new event in ${category} that might interest you! Come back to see what's happening at Ü Meet<p></a>
+        <p>https://u-meet-app.herokuapp.com/category/${id}</p>
         </main>
     </body>
     </html>`
