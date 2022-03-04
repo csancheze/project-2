@@ -19,9 +19,10 @@ const hbs = exphbs.create({ helpers }, { handlebarsHelpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 60*10000
+    maxAge : 86400 * 1000
   },
-  resave: true,
+  rolling : true,
+  resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize

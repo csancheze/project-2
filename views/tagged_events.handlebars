@@ -1,6 +1,6 @@
 <div class="row d-flex justify-content-center">
 {{#each tagged_events as |event|}}
-<a href="/event/{{event.id}}" class="col-12 col-md-3 m-2 category rounded-3 btn-outline-primary">
+<a href="/event/{{event.id}}" class="col-12 col-md-3 m-2 category rounded-3 btn-outline-primary event-card">
       <div class="p-2" id="event-container btn-outline-primary">
         <h4 class="event-title">{{event.title}}</h4>
         <p style="padding:5px; height: 100px; overflow:auto; box-shadow: inset 0 0 5px black" id="event-data" class="event-content">Details: {{event.content}}</p>
@@ -10,3 +10,4 @@
       </a>
 {{/each}}
 </div>
+  <script src="/js/timecheck.js"></script>
