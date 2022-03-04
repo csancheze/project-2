@@ -1,17 +1,22 @@
 [
     {
-      "name": "Videogames"
+      "name": "Videogames",
+      "icon": "bi bi-controller"
     },
     {
-      "name": "Health"
+      "name": "Health",
+      "icon": "bi bi-bicycle"
     },
     {
-      "name": "Sports"
+      "name": "Sports",
+      "icon": "bi bi-bicycle"
     },
     {
-      "name": "Cooking"
+      "name": "Cooking",
+      "icon": "bi bi-egg-fried"
     },
     {
-      "name": "Books"
+      "name": "Books",
+      "icon": "bi bi-book"
     }
 ]

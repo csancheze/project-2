@@ -7,14 +7,14 @@ Select a category:
 {{#each categories as |category|}}
   <a href="/category/{{category.id}}" class="col-11 col-sm-3 p-0 m-2 category rounded-3 btn-outline-primary">
       <div class="d-flex justify-content-center p-2 align-middle">
-      <h4 class="category-title">{{category.name}} <span class="bi bi-controller"></span></h4>
+      <h4 class="category-title">{{category.name}} <span class="{{category.icon}}"></span></h4>
       </div>
   </a>
 {{/each}}
 </div>
 
 
-<div style="width: 100%; display:inline-block; white-space:nowrap; height: 200px;" class="d-flex justify-content-center mt-2" >
+<div style="width: 100%; display:inline-block; margin-top: 70px; white-space:nowrap;" class="d-flex justify-content-center mt-2 comment-list rounded mb-0 p-1" >
   <span class="p-2">Search by Tags:</span>
   {{#each tags as |tag|}}
   <div class= "m-1" style="display: inline-block;">
@@ -23,7 +23,7 @@ Select a category:
   {{/each}}
 </div>
 <div style="text-align: center; margin-bottom:100px">
-<button class= "btn btn-primary m-1" style="background: #5e87b8"id="left"></button><button class="btn btn-primary m-1" style="background: #5e87b8" id="right">></button>
+<button class= "btn btn-primary m-1" style="background: #5e87b8"id="left"><</button><button class="btn btn-primary m-1" style="background: #5e87b8" id="right">></button>
 </div>
 
 <div id="myForm" style=" width: 90%; display:none; left:5%">
