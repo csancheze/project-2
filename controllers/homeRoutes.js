@@ -101,6 +101,7 @@ router.get('/event/:id', withAuth, async (req, res) => {
         {
           model: User,
           through: UserEvent,
+          attributes: ['name'],
           as: 'participants'
         },
         {
