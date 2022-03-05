@@ -7,12 +7,12 @@ if(counter == 0) {
 
 
 const scrollLeft = async (event) => {
-    const elmnt = document.querySelector(".comment-list");
+    const elmnt = document.querySelector("#tag-list");
   elmnt.scrollLeft -=60;
 }
 
 const scrollRight = async (event) => {
-    const elmnt = document.querySelector(".comment-list");
+    const elmnt = document.querySelector("#tag-list");
   elmnt.scrollLeft +=60;
 }
 

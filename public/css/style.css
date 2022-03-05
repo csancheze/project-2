@@ -127,7 +127,7 @@ footer {
     cursor: pointer;
   }
  
-#logout, #new-event-button, #create-button, #update-button, #participate-button, #dont-button, #delete-button, #update-button, #message-button, #add-tags, .is_button, #tags, #delete-tag, #delete-tag-button, #add-tag {
+#logout, #new-event-button, #create-button, #update-button, #participate-button, #dont-button, #delete-button, #update-button, #add-tags, .is_button, #tags, .delete-tag {
     box-shadow: 0px 0px 0px transparent;
     border: 0px solid transparent;
     text-shadow: 0px 0px 0px transparent;
@@ -178,7 +178,7 @@ footer {
     font-size: 3vh;
 }
 
-#create-button, #update-button, #login-button, #signup-button, #message-button, #goback-button, #add-tag {
+#create-button, #update-button, #login-button, #signup-button, #message-button, #participate-button, #dont-button, .is_button {
     background-color: #5f5dbd;
     color: white;
     margin-right: 0;
@@ -254,15 +254,24 @@ footer {
 }
 
 #add-tag {
-    display: block;
+    display: inline-block;
+    color: white;
+    font-size: 3vh;
+    filter: none;
 }
 
 #goback-button {
     display: inline-block;
+
 }
 
 #tag-list {
     font-size: 3vh;
     color: var(--first-color);
     margin-bottom: 10px;
+}
+
+.delete-tag {
+    background-color: red;
+    color: white;
 }

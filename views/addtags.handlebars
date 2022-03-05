@@ -1,37 +1,36 @@
-<div class="rounded" id="event-container" style="text-align:center; font-size:large">
+<div class="rounded row col-12 col-sm-8 m-2 mx-auto mb-5 p-2" id="event-container" style="text-align:center; font-size:large">
+     <h4 class="event-title" data-id="{{id}}">Event: {{title}}</h4>
      <div class="p-3" id="list-tags">
         <h3>List of all tags: </h3>
-        <div  style=" height:100px; overflow:auto;">
+        <div  style="overflow:auto; white-space:nowrap">
         {{#each tags as |tag|}}
-        <div class="m-1" style=" border: solid 3px white; width:fit-content; display:inline-block">
+        <div id="tags" class="m-1" style="width:fit-content; display:inline-block">
         <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span>
         </div>
         {{/each}}
         </div>
     </div>
-     <h4 class="event-title" style="color:var(--third-color)" data-id="{{id}}">Event: {{title}}</h4>
-    <div class="p-3">
+    <div class="p-3 list-tags">
         <h2>This event tags:</h2>
+        <div style="overflow:auto; white-space:nowrap; ">
         {{#each event_tags as |tag|}}
-        <div style="border: solid 3px black; width:fit-content; display:inline-block" >
-        <span class="p-2" style="font-weight: bold"> {{tag.tag_name}} </span><button style="font-size:small"class="is_button delete-tag" data-id="{{tag.id}}">Delete</button>
+        <div style="display:inline-block; width:fit-content;" >
+        <span class="p-1"> {{tag.tag_name}} </span><button style="font-size:small"class="delete-tag m-0" data-id="{{tag.id}}">Delete</button>
         </div>
         {{/each}}
+        </div>
     </div>
    
     <div>
     <form  class="form p-2" id="new-tag" data-id="{{id}}">
         <div class="form-group">
-        <textarea class="form-input" id="tag" name="tag" rows="1" cols="50"></textarea>
+        <textarea class="form-input" id="tag" name="tag" rows="1" cols="35"></textarea>
         <div class="form-group d-flex justify-content-center mt-3">
         <button class="btn is_button" type="submit">Add tag to event</button>
         </div>
+        <a id="goback-button" class="m-0" href="/event/{{id}}">Back to event</a>
         </div>
     </form>
     </div>
-
 </div>
-<div class="d-flex justify-content-center mt-5 mb-5">
-    <a id="goback-button" class="btn"href="/event/{{id}}">Back to event</a>
-    </div>
   <script src="/js/tags.js"></script>
