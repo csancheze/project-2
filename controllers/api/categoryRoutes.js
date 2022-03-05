@@ -19,26 +19,4 @@ router.post('/', withAuth, async (req, res) => {
 
 });
 
-router.put('/', async (req, res) => {
-    try {
-      const categoryData = await Category.update({
-        icon: "bi bi-heart"
-      },
-      {
-        where: {
-          name : "Health"
-        },
-      }
-      );
-      if (!categoryData) {
-        res.status(404).json({message: 'No Category found with this id!'});
-        return;
-      }
-      res.status(200).json(categoryData)
-  
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
 module.exports = router;
