@@ -9,6 +9,7 @@ for (i = 0; i < eventCards.length; i++) {
     const date = new Date(eventCards[i].getAttribute('data-id'))
 
     const now = new Date()
+    console.log(now)
     if ( date < now.setHours(now.getHours()-1)) {
         const text =document.createElement("p")
         text.setAttribute("style","color:white; font-size: 2vh; text-align: center; box-shadow: 0 0 10px red; display: inline-block; padding: 3px; border-radius: 5px;")
