@@ -19,7 +19,7 @@ router.post('/', withAuth, async (req, res) => {
 
 });
 
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/', withAuth, async (req, res) => {
     try {
       const categoryData = await Category.update({
         icon: "bi bi-heart"
