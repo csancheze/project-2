@@ -5,6 +5,25 @@ module.exports = {
   format_time: (date) => {
     return date.toLocaleTimeString();
   },
+  format_time2: (date) => {
+    const hour = () => {
+      let singlehour = `${new Date(date).getHours()}`
+      if (singlehour.length == 1) {
+        return `0${singlehour}`
+      }else {
+        return singlehour
+      }   
+    }
+    const minutes = () => {
+        let singleminute = `${new Date(date).getMinutes()}`
+        if (singleminute.length == 1) {
+          return `0${singleminute}`
+        }else {
+          return singleminute
+        }   
+      }
+    return `${hour()}:${minutes()}`
+  },
   format_date2: (date) => {
 
     const month = () => {
