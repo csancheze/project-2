@@ -25,6 +25,7 @@ router.get('/', async (req, res) => {
 
 
     const tags = tagData.map((tag) => tag.get({ plain: true }));
+    tags.sort((a, b) => (a.tag_name > b.tag_name) ? 1 : ((b.tag_name > a.tag_name) ? -1 : 0));
 
     if (categoryData == "") {
       const createCategories = await Category.bulkCreate(categoriesData, {
@@ -219,32 +220,6 @@ router.get('/myevents', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-//Get all tags
-router.get('/tags', async (req, res) => {
-  try {
-    const tagsData = await Tag.findAll();
-
-    console.log(tagsData)
-
-    if (!tagsData) {
-      res.status(404).json({ message: 'No tags found' });
-      return;
-    }
-
-    const tag = tagsData.get({ plain: true });
-    tag.sort((a, b) => (a.tag_name > b.tag_name) ? 1 : ((b.tag_name > a.tag_name) ? -1 : 0));
-
-    res.status(200).json(tag);
-
-
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-
 
 
 //This for tags
