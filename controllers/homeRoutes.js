@@ -22,9 +22,10 @@ router.get('/', async (req, res) => {
 
     const tagData = await Tag.findAll({
     })
-  
-  
+
+
     const tags = tagData.map((tag) => tag.get({ plain: true }));
+    tags.sort((a, b) => (a.tag_name > b.tag_name) ? 1 : ((b.tag_name > a.tag_name) ? -1 : 0));
 
     if (categoryData == "") {
       const createCategories = await Category.bulkCreate(categoriesData, {
@@ -63,7 +64,7 @@ router.get('/category/:id', async (req, res) => {
     });
 
     const now = new Date()
-    now.setHours(now.getHours()-2)
+    now.setHours(now.getHours() - 2)
 
     const category = categoryData.get({ plain: true });
     console.log(category);
@@ -220,6 +221,7 @@ router.get('/myevents', withAuth, async (req, res) => {
   }
 });
 
+
 //This for tags
 router.get('/tag/:id', async (req, res) => {
   try {
@@ -235,19 +237,19 @@ router.get('/tag/:id', async (req, res) => {
     }
 
     const now = new Date()
-    now.setHours(now.getHours()-2)
+    now.setHours(now.getHours() - 2)
 
     const tag = tagData.get({ plain: true });
     console.log(tag)
-    tag.tagged_events =  tag.tagged_events.filter(event => event.date_celebration.getTime() >= now.getTime());
+    tag.tagged_events = tag.tagged_events.filter(event => event.date_celebration.getTime() >= now.getTime());
     tag.tagged_events.sort((a, b) => (a.date_celebration > b.date_celebration) ? 1 : ((b.date_celebration > a.date_celebration) ? -1 : 0));
 
-    res.render('tagged_events', { 
+    res.render('tagged_events', {
       ...tag,
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
     });
-  
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -258,7 +260,7 @@ router.get('/addtags/:id', withAuth, async (req, res) => {
   try {
     const eventData = await Event.findByPk(req.params.id, {
       include: [
-         {
+        {
           model: Tag,
           through: EventTag,
           as: 'event_tags'
@@ -271,7 +273,7 @@ router.get('/addtags/:id', withAuth, async (req, res) => {
     const tags = tagData.map((tag) => tag.get({ plain: true }));
     const event = eventData.get({ plain: true });
 
-    res.render('addtags', { 
+    res.render('addtags', {
       tags,
       ...event,
       logged_in: req.session.logged_in,
