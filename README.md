@@ -42,7 +42,10 @@
   - Isaias Reyes Leon: Design, Handlebars, CSS, Bootstrap.
   - Regulo Argotte: API, home-routes, models, Client JS.
 
-
+  ## Tests
+  
+  Go to the live [application](https://u-meet-app.herokuapp.com/) to test it
+  
   ## User Story
   ```
   AS a user I want to
